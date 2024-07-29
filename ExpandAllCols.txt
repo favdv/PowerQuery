@@ -1,0 +1,65 @@
+/*
+This Power Query function is used to expand all record, list and table columns in PowerBI while retaining non-expandable information in columns. 
+
+For a full description of the functionality, see also: 
+https://www.linkedin.com/pulse/auto-expanding-columns-using-power-query-ferry-van-der-vorst-3j3ne/
+
+To implement this, either:
+- Add a blank query in PowerBI
+- Copy this file into the blank Query
+- Rename the blank Query to "ExpandAllCols"
+- In the table where you want to use it, call the function via <newstep> = ExpandAllCols(<previous step>) or <nestep = @ExpandAllCols(<previous step>)
+
+Or: 
+- Open the table where you want to use the function
+- Add the content of this file before you want to call the function (e.g. at the beginning)
+- Uncomment "let ExpandAllCols =" and the comma at the end
+- Call the function via <newstep> = ExpandAllCols(<previous step>) or <nestep = @ExpandAllCols(<previous step>)
+*/
+
+//let ExpandAllCols =
+(previousStep as table,optional i as number) => let 
+  i= if i=null then 0 else i,
+  columnCount = Table.ColumnCount(previousStep),
+  columnNames = Table.ColumnNames(previousStep),
+  processColumn = if i < columnCount then  
+    if Table.RowCount(Table.SelectRows(previousStep,each 
+      Value.Is(Record.Field(_,columnNames{i}),type list)=true or 
+      Value.Is(Record.Field(_,columnNames{i}),type table)=true or 
+      Value.Is(Record.Field(_,columnNames{i}),type record)=true)) = 0
+    then @ExpandAllCols2(previousStep,i+1)
+    else let
+    
+    #"Expand list" = Table.ExpandListColumn(
+        Table.ReplaceValue(
+        previousStep,
+        each  Record.Field(_,columnNames{i}),
+        each  if  Value.Is(Record.Field(_,columnNames{i}),type list)=false and 
+           Value.Is(Record.Field(_,columnNames{i}),type table)=false
+          then {Record.Field(_,columnNames{i})} 
+          else Record.Field(_,columnNames{i}) ,Replacer.ReplaceValue,{columnNames{i}}),
+       columnNames{i}), 
+
+    #"Expand record" = let convert = Table.ReplaceValue(
+        #"Expand list",
+        each  Record.Field(_,columnNames{i}),
+        each  if Value.Is(Record.Field(_,columnNames{i}),type record)=false
+          then [#"_" = Record.Field(_,columnNames{i})]  
+          else Record.Field(_,columnNames{i})  ,Replacer.ReplaceValue,{columnNames{i}}) ,
+     expandRecords = let  
+       //oldRecords = Record.FieldNames( Record.Combine(Table.Column(convert,columnNames{i}))),
+       oldRecords = let 
+        selectRows = Table.SelectRows(convert,each Value.Is(Record.Field(_,columnNames{i}),type record)),
+        convertToTable = Table.FromList(Table.Column(selectRows,columnNames{i}), Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+        createListOfFieldNames = Table.ExpandListColumn(Table.AddColumn(convertToTable, "old.name", each Record.FieldNames([Column1])), "old.name"),
+        removeRecordCol = Table.SelectColumns(createListOfFieldNames,{"old.name"}),
+        makeDistinct = Table.Distinct(removeRecordCol)
+        in makeDistinct,
+       newRecords = Table.AddColumn(oldRecords, "new.name", each if [old.name] = "_" then columnNames{i} else columnNames{i} &"." & [old.name]),
+       expandTable = Table.ExpandRecordColumn( convert, columnNames{i}, newRecords[old.name],newRecords[new.name])
+       in expandTable
+            
+     in expandRecords
+    in @ExpandAllCols2(#"Expand record",i) 
+   else previousStep  
+  in processColumn //,
