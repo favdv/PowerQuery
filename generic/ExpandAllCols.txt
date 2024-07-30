@@ -27,7 +27,7 @@ Or:
       Value.Is(Record.Field(_,columnNames{i}),type list)=true or 
       Value.Is(Record.Field(_,columnNames{i}),type table)=true or 
       Value.Is(Record.Field(_,columnNames{i}),type record)=true)) = 0
-    then @ExpandAllCols2(previousStep,i+1)
+    then @ExpandAllCols(previousStep,i+1)
     else let
     
     #"Expand list" = Table.ExpandListColumn(
@@ -60,6 +60,6 @@ Or:
        in expandTable
             
      in expandRecords
-    in @ExpandAllCols2(#"Expand record",i) 
+    in @ExpandAllCols(#"Expand record",i) 
    else previousStep  
   in processColumn //,
