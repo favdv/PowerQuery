@@ -35,7 +35,8 @@ Or:
         previousStep,
         each  Record.Field(_,columnNames{i}),
         each  if  Value.Is(Record.Field(_,columnNames{i}),type list)=false and 
-           Value.Is(Record.Field(_,columnNames{i}),type table)=false
+           Value.Is(Record.Field(_,columnNames{i}),type table)=false and 
+           Record.Field(_,columnNames{i}) <> null
           then {Record.Field(_,columnNames{i})} 
           else Record.Field(_,columnNames{i}) ,Replacer.ReplaceValue,{columnNames{i}}),
        columnNames{i}), 
@@ -43,7 +44,8 @@ Or:
     #"Expand record" = let convert = Table.ReplaceValue(
         #"Expand list",
         each  Record.Field(_,columnNames{i}),
-        each  if Value.Is(Record.Field(_,columnNames{i}),type record)=false
+        each  if Value.Is(Record.Field(_,columnNames{i}),type record)=false and 
+                 Record.Field(_,columnNames{i}) <> null 
           then [#"_" = Record.Field(_,columnNames{i})]  
           else Record.Field(_,columnNames{i})  ,Replacer.ReplaceValue,{columnNames{i}}) ,
      expandRecords = let  
