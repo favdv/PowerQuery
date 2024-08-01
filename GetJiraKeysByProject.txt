@@ -1,0 +1,27 @@
+(SourceTable as table, Domains as text, Projects as text)=> 
+let
+  #"Get Keys" = Table.ExpandRecordColumn(
+		  Table.ExpandListColumn(
+		    Table.ExpandRecordColumn(
+		      Table.AddColumn(SourceTable, "keys", each 
+                        if Record.Field(_,Domains) = "<your domain>" 
+                        then Json.Document(
+                          Web.Contents(
+                            "<your domain>",
+                            [
+                              RelativePath = "rest/api/3/search/",
+                              Query = [
+                                jql="project="&Record.Field(_,Projects),
+                                maxResults = "10000" 
+                              ]
+                            ]
+                          )
+                        )
+                        else null
+                      ), 
+		    "keys", {"issues"}
+		  ), "issues"
+		), 
+		"issues", {"key"}
+	      )
+    in #"Get Keys"
