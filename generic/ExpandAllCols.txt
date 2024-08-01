@@ -49,14 +49,13 @@ Or:
           then [#"_" = Record.Field(_,columnNames{i})]  
           else Record.Field(_,columnNames{i})  ,Replacer.ReplaceValue,{columnNames{i}}) ,
      expandRecords = let  
-       //oldRecords = Record.FieldNames( Record.Combine(Table.Column(convert,columnNames{i}))),
-       oldRecords = let 
-        selectRows = Table.SelectRows(convert,each Value.Is(Record.Field(_,columnNames{i}),type record)),
-        convertToTable = Table.FromList(Table.Column(selectRows,columnNames{i}), Splitter.SplitByNothing(), null, null, ExtraValues.Error),
-        createListOfFieldNames = Table.ExpandListColumn(Table.AddColumn(convertToTable, "old.name", each Record.FieldNames([Column1])), "old.name"),
-        removeRecordCol = Table.SelectColumns(createListOfFieldNames,{"old.name"}),
-        makeDistinct = Table.Distinct(removeRecordCol)
-        in makeDistinct,
+        oldRecords = Table.RenameColumns(Table.FromList(
+       Record.FieldNames(Record.Combine(
+         List.RemoveNulls(
+           Table.Column(convert,columnNames{i})
+         ))
+       ), Splitter.SplitByNothing(), null, null, ExtraValues.Error),{{"Column1", "old.name"}}
+     ),
        newRecords = Table.AddColumn(oldRecords, "new.name", each if [old.name] = "_" then columnNames{i} else columnNames{i} &"." & [old.name]),
        expandTable = Table.ExpandRecordColumn( convert, columnNames{i}, newRecords[old.name],newRecords[new.name])
        in expandTable
