@@ -13,7 +13,7 @@ This option (step: RemoveColsViaPivot):
 
 To implement this step, there are several options:
 - Copy the step into the table you're working on (e.g. at the beginning of the table and assuming the step name is not changed,
-  call the function when needed via: <newStep> = RemoveColsViaLoop(<previousStep), e.g.. 
+  call the function when needed via: <newStep> = RemoveColsViaPivot(<previousStep), e.g.. 
 
 ----------------
 let 
