@@ -12,7 +12,7 @@ Or:
 - Open the table where you want to use the function
 - the Get Keys step as a new step and change SourceTable to the table containing the columns, change Domains to the name of the domain column (as a string) and Projects to the name of the Project Id column (as a string) 
 
-In any case, also change <your domain> to the domain name of your JIRA tenant. If the organisation has more than one domain, you can add more by extending the code by ading more if statements, like 
+In any case, also change <your domain> to the domain name of your JIRA tenant. If the organisation has more than one domain, you can add more by extending the code by adding more if statements, like 
 
 if Record.Field(_,Domains) = "<your domain>"
 then Json.Document(
