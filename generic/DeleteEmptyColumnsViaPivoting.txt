@@ -1,0 +1,83 @@
+/"
+There are different ways to delete empty columns (columns that only contain null values). 
+This file contains an option to do this via table pivoting. 
+
+This option (step: RemoveColsViaPivot):
+- Makes the column headers the first row (so you won't lose them, 
+- Transposes the table
+- Checks if the row contains less than 2 columns with a value and sets the value to true if it only contains the header or false if not 
+(It is really one or less as you should have always one (the column header in the first column)  
+- Next the new column is filtered on false (so only rows with more than one column populated remain)
+- The filter column is removed as it is no longer needed.
+- The table is transposed back and the headers promoted again.
+
+To implement this step, there are several options:
+- Copy the step into the table you're working on (e.g. at the beginning of the table and assuming the step name is not changed,
+  call the function when needed via: <newStep> = RemoveColsViaLoop(<previousStep), e.g.. 
+
+----------------
+let 
+RemoveColsViaPivot = (selectedTable as table) =>   
+  Table.PromoteHeaders(
+    Table.Transpose(Table.RemoveColumns(
+      Table.SelectRows(   
+        Table.AddColumn(
+          Table.Transpose(Table.DemoteHeaders(selectedTable)), 
+          "Custom",
+           each if List.NonNullCount(Record.ToList(_))<2 then true else false
+        ), 
+        each [Custom] = false
+      ),{"Custom"})), [PromoteAllScalars=true]),
+
+Source = *Some table with empty columns*,
+RemoveEmptyCols = RemoveColsViaPivot(Source)
+in RemoveEmptyCols
+----------------
+
+
+
+
+- Copy the step in the table in the position where you want to use it, i.e.:
+
+
+----------------
+let 
+Source = *Some table with empty columns*,
+RemoveEmptyCols =  Table.PromoteHeaders(
+    Table.Transpose(Table.RemoveColumns(
+      Table.SelectRows(   
+        Table.AddColumn(
+          Table.Transpose(Table.DemoteHeaders(Source)), 
+          "Custom",
+           each if List.NonNullCount(Record.ToList(_))<2 then true else false
+        ), 
+        each [Custom] = false
+      ),{"Custom"})), [PromoteAllScalars=true])
+in RemoveEmptyCols
+
+----------------
+
+- Turn the step into a separate function and call the function   
+e.g. a function "Remove" as a blank query:
+
+
+----------------
+
+(selectedTable as table) =>
+let RemoveColsViaPivot =    
+  Table.PromoteHeaders(
+    Table.Transpose(Table.RemoveColumns(
+      Table.SelectRows(   
+        Table.AddColumn(
+          Table.Transpose(Table.DemoteHeaders(selectedTable)), 
+          "Custom",
+           each if List.NonNullCount(Record.ToList(_))<2 then true else false
+        ), 
+        each [Custom] = false
+      ),{"Custom"})), [PromoteAllScalars=true])
+in RemoveColsViaPivot
+
+----------------
+
+And call from function via <newstep> = Remove(<previousstep>)
+        
