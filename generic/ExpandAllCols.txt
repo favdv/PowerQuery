@@ -50,12 +50,12 @@ Or:
           else Record.Field(_,columnNames{i})  ,Replacer.ReplaceValue,{columnNames{i}}) ,
      expandRecords = let  
         oldRecords = Table.RenameColumns(Table.FromList(
-       Record.FieldNames(Record.Combine(
-         List.RemoveNulls(
-           Table.Column(convert,columnNames{i})
-         ))
-       ), Splitter.SplitByNothing(), null, null, ExtraValues.Error),{{"Column1", "old.name"}}
-     ),
+           Record.FieldNames(Record.Combine(
+              List.RemoveNulls(
+                 Table.Column(convert,columnNames{i})
+              ))
+           ), Splitter.SplitByNothing(), null, null, ExtraValues.Error),{{"Column1", "old.name"}}
+       ),
        newRecords = Table.AddColumn(oldRecords, "new.name", each if [old.name] = "_" then columnNames{i} else columnNames{i} &"." & [old.name]),
        expandTable = Table.ExpandRecordColumn( convert, columnNames{i}, newRecords[old.name],newRecords[new.name])
        in expandTable
