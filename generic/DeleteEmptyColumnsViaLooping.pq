@@ -1,5 +1,3 @@
-/"
-This function uses a loop to delete empty columns (columns that only contain null values). */
 (selectedTable as table) =>
   Table.RemoveColumns(
     selectedTable, List.RemoveNulls( 
