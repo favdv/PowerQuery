@@ -14,6 +14,8 @@ The repository is split between:
 ## Patterns
 Patterns require some user updating before they can be used. Typical example is functions calling APIs since the Web.Contents function in PowerBi requires the domain to be hardcoded.  
 
+Since patterns require some modification, these should not be linked directly from github
+
 _**Note:** While it might not be obvious that this is needed in PowerBI desktop, the functions are written in a way so it will also ensure auto-refresh works once published._
 
 # Implementation of functions
@@ -60,6 +62,7 @@ Pros:
 Cons:
 - If the function is moved, the report will break. To fix a moved function, the link will need to be updated.
 - If the function is deleted, the report will break. To fix this, remove the references to the function and/or rewrite the function.
+- This option is not suitable for patterns.
 - Any bugs or changes introduced in the function within Github will be reflected in the report and could impact performance, functionality in PowerBi, etc.
 - Authentication might be required depending on the type of repo. _**Note:** Depending if the repository is public or private, you might need to authenticate. If it is a public repository, you can select the repo from the dropdown and perform authenticate anonymously._
 
