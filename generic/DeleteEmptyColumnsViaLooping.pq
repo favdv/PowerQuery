@@ -1,3 +1,8 @@
+/* 
+When this function is called, all empty columns (columns that only contain null values) will be removed from the respective table.
+See also the readme.md file for more information on how to implement this. 
+*/
+
 (selectedTable as table) =>
   Table.RemoveColumns(
     selectedTable, List.RemoveNulls( 
