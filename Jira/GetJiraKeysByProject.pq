@@ -1,5 +1,7 @@
 /* 
-This function is a jira specific pattern, which retrieves the keys by the domain and project names.
+This function is a jira specific pattern, which retrieves the keys by the domain and project names. 
+It does not take board filters into account).
+
 Ensure you modify your domain(s) to suit your specific requirements. 
 The source table needs to have a column with the jira domain and one column with the Projects.
 
