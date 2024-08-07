@@ -1,23 +1,6 @@
 /*
-This Power Query function is used to expand all record, list and table columns in PowerBI while retaining non-expandable information in columns. 
 
-For a full description of the functionality, see also: 
-https://www.linkedin.com/pulse/auto-expanding-columns-using-power-query-ferry-van-der-vorst-3j3ne/
-
-To implement this, either:
-- Add a blank query in PowerBI
-- Copy this file into the blank Query
-- Rename the blank Query to "ExpandAllCols"
-- In the table where you want to use it, call the function via <newstep> = ExpandAllCols(<previous step>) or <nestep = @ExpandAllCols(<previous step>)
-
-Or: 
-- Open the table where you want to use the function
-- Add the content of this file before you want to call the function (e.g. at the beginning)
-- Uncomment "let ExpandAllCols =" and the comma at the end
-- Call the function via <newstep> = ExpandAllCols(<previous step>) or <nestep = @ExpandAllCols(<previous step>)
 */
-
-//let ExpandAllCols =
 (previousStep as table,optional i as number) => let 
   i= if i=null then 0 else i,
   columnCount = Table.ColumnCount(previousStep),
@@ -63,4 +46,4 @@ Or:
      in expandRecords
     in @ExpandAllCols(#"Expand record",i) 
    else previousStep  
-  in processColumn //,
+  in processColumn
