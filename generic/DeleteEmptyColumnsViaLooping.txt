@@ -1,21 +1,6 @@
 /"
-There are different ways to delete empty columns (columns that only contain null values). 
-This file contains an option to do this via a loop. 
-
-This option (step: RemoveColsViaLoop):
-- loops through each column, 
-- filters on the column for all items that are not null
-- if the resulting table is empty, it means the column is empty
-- if the column is empty, it is added to a list 
-- once all columns are looped through, the columns in the list are removed.
-
-To implement this step, there are several options:
-- Copy the step into the table you're working on (e.g. at the beginning of the table and assuming the step name is not changed,
-  call the function when needed via: <newStep> = RemoveColsViaLoop(<previousStep), e.g.. 
-
-----------------
-let 
-RemoveColsViaLoop = (selectedTable as table) =>
+This function uses a loop to delete empty columns (columns that only contain null values). */
+(selectedTable as table) =>
   Table.RemoveColumns(
     selectedTable, List.RemoveNulls( 
       List.Generate(()=>[i=0],each [i]<Table.ColumnCount(selectedTable), each [i=[i]+1], each let i = [i] in 
@@ -24,54 +9,4 @@ RemoveColsViaLoop = (selectedTable as table) =>
         else null
       ) 
     )
-  ),
-
-Source = *Some table with empty columns*,
-RemoveEmptyCols = RemoveColsViaLoop(Source)
-in RemoveEmptyCols
-----------------
-
-
-
-
-- Copy the step in the table in the position where you want to use it, i.e.:
-
-
-----------------
-let 
-Source = *Some table with empty columns*,
-RemoveEmptyCols = Table.RemoveColumns(
-    Source, List.RemoveNulls( 
-      List.Generate(()=>[i=0],each [i]<Table.ColumnCount(Source), each [i=[i]+1], each let i = [i] in 
-        if Table.RowCount(Table.SelectRows(Source, each Record.Field(_,Table.ColumnNames(Source){i})<>null)) = 0 
-        then Table.ColumnNames(Source){i} 
-        else null
-      ) 
-    )
   )
-in RemoveEmptyCols
-
-----------------
-
-- Turn the step into a separate function and call the function   
-e.g. a function "Remove" as a blank query:
-
-
-----------------
-
-(selectedTable as table) =>
-let RemoveColsViaLoop =   Table.RemoveColumns(
-    selectedTable, List.RemoveNulls( 
-      List.Generate(()=>[i=0],each [i]<Table.ColumnCount(selectedTable), each [i=[i]+1], each let i = [i] in 
-        if Table.RowCount(Table.SelectRows(selectedTable, each Record.Field(_,Table.ColumnNames(selectedTable){i})<>null)) = 0 
-        then Table.ColumnNames(selectedTable){i} 
-        else null
-      ) 
-    )
-  )
-in RemoveColsViaLoop
-
-----------------
-
-And call from function via <newstep> = Remove(<previousstep>)
-        
