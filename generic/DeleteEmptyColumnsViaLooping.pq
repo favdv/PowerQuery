@@ -1,6 +1,6 @@
 /* 
 When this function is called, all empty columns (columns that only contain null values) will be removed from the respective table.
-See also the [README.md](https://github.com/favdv/powerbi-powerquery-toolkit/blob/main/README.md) file for more information on how to implement this. 
+See also the README.md file in the repository for more information on how to implement this. 
 */
 
 (selectedTable as table) =>
