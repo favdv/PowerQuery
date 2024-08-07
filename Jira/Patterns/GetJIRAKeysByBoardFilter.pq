@@ -26,8 +26,8 @@ let NewKeyColumnName = if NewKeyColumnName = null then "keys" else NewKeyColumnN
 	              [RelativePath = "/rest/api/2/search/",
 	               Query = [
 	                 jql=Text.From(Record.Field(_,Filters)) ,
-					         fields="key",
-                   maxResults="100000"
+			 fields="key",
+                         maxResults="100000"
 	               ]
 	              ]
 	            )) 
