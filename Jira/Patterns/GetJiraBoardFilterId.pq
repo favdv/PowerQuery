@@ -23,5 +23,5 @@ Table.ExpandRecordColumn(
     else null
     ), 
     NewFilterColumnName, {NewFilterColumnName}
-), NewFilterColumnName, {NewFilterColumnName}, {NewFilterColumnName}
+), NewFilterColumnName, {NewFilterColumnName}
 )
