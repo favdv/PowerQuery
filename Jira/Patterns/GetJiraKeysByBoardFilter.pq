@@ -17,10 +17,10 @@ let
 	  Table.ExpandRecordColumn(
 		Table.ExpandRecordColumn(
 		  Table.AddColumn(previousStep, "filter id", each 
-			if Text.From( Record.Field(_,Domains)) = "https://iagtech.atlassian.net" 
+			if Text.From( Record.Field(_,Domains)) = "<your domain>" 
 			then 
 			  Json.Document(Web.Contents(
-			   "https://iagtech.atlassian.net",
+			   "<your domain>",
 			   [RelativePath = "/rest/agile/1.0/board/" & Record.Field(_,BoardIds) & "/configuration"]
 			  )) 
 			else null
@@ -32,10 +32,10 @@ let
 	#"Get Filters for board" =
 	  Table.ExpandRecordColumn(
 	    Table.AddColumn(#"Get Filter id for board", "jql", each 
-	      if Text.From( Record.Field(_,Domains)) = "https://iagtech.atlassian.net" 
+	      if Text.From( Record.Field(_,Domains)) = "<your domain>" 
 	      then 
 		    Json.Document(Web.Contents(
-	          "https://iagtech.atlassian.net",
+	          "<your domain>",
 	          [RelativePath = "/rest/api/2/filter/" &Text.From( Record.Field(_,"Filter Id"))]
 	        )) 
 	      else null
@@ -56,10 +56,10 @@ let
 	    Table.ExpandListColumn(
 		  Table.ExpandRecordColumn(
 		    Table.AddColumn(#"Strip Order By", "keys", each 
-	          if Text.From( Record.Field(_,Domains)) = "https://iagtech.atlassian.net" 
+	          if Text.From( Record.Field(_,Domains)) = "<your domain>" 
 	          then 
 			    Json.Document(Web.Contents(
-	              "https://iagtech.atlassian.net",
+	              "<your domain>",
 	              [RelativePath = "/rest/api/2/search/",
 	               Query = [
 	                  jql=Text.From(Record.Field(_,"jql")) ,
