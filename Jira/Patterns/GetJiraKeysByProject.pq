@@ -10,25 +10,25 @@ newStep = GetJiraKeysByProject(Table1, "DomainColumn","ProjectColumn")
 See also the README.md file in the repository for more information on how to implement this. 
 */
 
-(SourceTable as table, Domains as text, Projects as text)=> 
+(SourceTable as table, Domains as text, Projects as text, optional NewKeyColumnName as nullable text)=> 
+let NewKeyColumnName = if NewKeyColumnName = null then "keys" else NewKeyColumnName in 
   Table.ExpandRecordColumn(
     Table.ExpandListColumn(
       Table.ExpandRecordColumn(
-	Table.AddColumn(SourceTable, "keys", each 
-          if Record.Field(_,Domains) = "<your domain>" 
+	      Table.AddColumn(SourceTable, NewKeyColumnName, each 
+          if Record.Field(_,Domains) = "https://iagtech.atlassian.net" 
           then Json.Document(Web.Contents(
-            "<your domain>",
+            "https://iagtech.atlassian.net",
             [RelativePath = "rest/api/3/search/",
              Query = [
                jql="project="&Record.Field(_,Projects),
                maxResults = "10000" 
              ]
             ]))
-           else null
-         ), 
-	 "keys", {"issues"}
-	), "issues"
-	), 
-"issues", {"key"}
-	  )
-in #"Get Keys"
+          else null
+        ), 
+	      NewKeyColumnName, {"issues"}
+	    ), "issues"
+	  ), 
+    "issues",{"key"}, {NewKeyColumnName}
+	)
