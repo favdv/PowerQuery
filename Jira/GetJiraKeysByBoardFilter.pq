@@ -6,6 +6,8 @@ The source table needs to have a column with the jira domain and one column with
 
 Assuming the name of the function will be GetJiraKeysByBoardFilter, the table is called Table1 and the column names DomainColumn and BoardColumn respectively, the function can be called via 
 newStep = GetJiraKeysByBoardFilter(Table1, "DomainColumn","BoardColumn")
+
+The 3 steps are also available as separate functions. in case partitioning is an issue or is you only with to retrieve the filter id or board filter.
 See also the README.md file in the repository for more information on how to implement this. 
 */
 
