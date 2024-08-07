@@ -16,9 +16,9 @@ let NewKeyColumnName = if NewKeyColumnName = null then "keys" else NewKeyColumnN
     Table.ExpandListColumn(
       Table.ExpandRecordColumn(
 	      Table.AddColumn(SourceTable, NewKeyColumnName, each 
-          if Record.Field(_,Domains) = "https://iagtech.atlassian.net" 
+          if Record.Field(_,Domains) = "<your domain>" 
           then Json.Document(Web.Contents(
-            "https://iagtech.atlassian.net",
+            "<your domain>",
             [RelativePath = "rest/api/3/search/",
              Query = [
                jql="project="&Record.Field(_,Projects),
