@@ -21,7 +21,7 @@ Table.ExpandRecordColumn(
         [RelativePath = "/rest/agile/1.0/board/" & Record.Field(_,BoardIds) & "/configuration"]
         )) 
     else null
-    ), 
-    NewFilterColumnName, {NewFilterColumnName}
-), NewFilterColumnName, {NewFilterColumnName}
+   ), 
+   NewFilterColumnName,{"filter"}, {NewFilterColumnName}
+ ), NewFilterColumnName, {"id"},{NewFilterColumnName}
 )
