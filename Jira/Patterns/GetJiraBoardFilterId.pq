@@ -22,6 +22,6 @@ Table.ExpandRecordColumn(
         )) 
     else null
     ), 
-    NewFilterColumnName, {"filter"}
-), "filter", {"id"}, {NewFilterColumnName}
+    NewFilterColumnName, {NewFilterColumnName}
+), NewFilterColumnName, {NewFilterColumnName}, {NewFilterColumnName}
 )
