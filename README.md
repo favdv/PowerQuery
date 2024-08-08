@@ -21,7 +21,7 @@ Since patterns require some modification, these should not be linked directly fr
 _**Note:** While it might not be obvious that this is needed in PowerBI desktop, the functions are written in a way so it will also ensure auto-refresh works once published._
 
 # Naming conventions
-The naming conventions are set up as follows: **&lt;functionType&gt;.&lt;tool&gt;.&lt;primaryInput&gt;.&lt;application&gt;**
+The naming conventions of the files are defined as follows: **&lt;functionType&gt;.&lt;tool&gt;.&lt;primaryInput&gt;.&lt;application&gt;**
 
 | Parts  | Meaning | Notes |
 |--------|---------|-------|
