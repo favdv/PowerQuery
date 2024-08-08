@@ -12,11 +12,24 @@ The repository is split between:
  Functions can be used without any user amendments and they should work immediately if used properly.
 
 ## Patterns
-Patterns require some user updating before they can be used. Typical example is functions calling APIs since the Web.Contents function in PowerBi requires the domain to be hardcoded.  
+Patterns typically requires some user updating before they can be used. 
+
+Typical example is functions calling APIs since the Web.Contents function in PowerBi requires the domain to be hardcoded. So the user needs to hardcode their own domain in. 
 
 Since patterns require some modification, these should not be linked directly from github
 
 _**Note:** While it might not be obvious that this is needed in PowerBI desktop, the functions are written in a way so it will also ensure auto-refresh works once published._
+
+# Naming conventions
+The naming conventions are set up as follows: **&lt;functionType&gt;.&lt;tool&gt;.&lt;primaryInput&gt;.&lt;application&gt;**
+
+| Parts  | Meaning | Notes |
+|--------|---------|-------|
+|functionType|Identifier if something is a function or a pattern |Typically "function" or "pattern", but cound be extended to e.g. "example", "data", etc.|
+|tool| Identifier if the function or pattern relates to a specific tool or not. |If not tool specific, "generic" is used|
+|primaryInput| Similar to PowerBI functions, it would be something like table, list, text, etc | |
+|application|Information what the function does|Can be further separated by dots to make things clearer. So for example: api.getKeysByBoardId makes an api call that retrieves keys by board id, or deletedEmptyColumns.pivot deletes emty columns using table pivoting|
+
 
 # Implementation of functions
 There are different ways to use the functions available in the repo. This provides some guidance on options with an example (based on a simple function). In this section, function [DeleteEmptyColumnsViaLooping](https://github.com/favdv/powerbi-powerquery-toolkit/blob/main/generic/DeleteEmptyColumnsViaLooping.pq) is being used as it is small, but the process is the same for all functions.
