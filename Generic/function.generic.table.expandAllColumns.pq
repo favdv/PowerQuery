@@ -1,10 +1,6 @@
 /* 
 When this function is called, all expandable columns are automatically expanded in the respective table.
 See also the README.md file in the repository for more information on how to implement this. 
-
-NOTE THAT THIS FUNCTION MUST BE CALLED "ExpandAllCols" AS THIS FUNCTION CALLS ITSELF TO LOOP THROUGH.
-
-If you want to amend the function name, replace "ExpandAllCols".
 */
 
 let ExpandAllCols = (previousStep as table,optional i as number) => let 
