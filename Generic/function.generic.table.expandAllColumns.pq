@@ -7,7 +7,7 @@ NOTE THAT THIS FUNCTION MUST BE CALLED "ExpandAllCols" AS THIS FUNCTION CALLS IT
 If you want to amend the function name, replace "ExpandAllCols".
 */
 
-(previousStep as table,optional i as number) => let 
+let ExpandAllCols = (previousStep as table,optional i as number) => let 
   i= if i=null then 0 else i,
   columnCount = Table.ColumnCount(previousStep),
   columnNames = Table.ColumnNames(previousStep),
@@ -53,3 +53,4 @@ If you want to amend the function name, replace "ExpandAllCols".
     in @ExpandAllCols(#"Expand record",i) 
    else previousStep  
   in processColumn
+in ExpandAllCols
