@@ -4,9 +4,7 @@ This repository is used to store snippets of Power Query that other Power BI dev
 Note that some snippets can be copied and used immediately, while others need some minor tweaking for your specific environment. For example: API calls using the Web.Contents function must have the domain hard coded, otherwise auto-refresh will not work.  
 
 # Repo structure
-The repository is split between:
-- generic functions (as in they can be used for all kinds of scenarios)
-- functions and patterns relating specific tools (e.g. retrieving data from tool specific APIs)
+The repository is set up in a way to easily target specific functions or patterns by seprating them into categories, like apis, data management (expanding/removing columns), etc.  
 
 ## Functions
  Functions can be used without any user amendments and they should work immediately if used properly.
