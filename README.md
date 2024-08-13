@@ -21,14 +21,14 @@ Since patterns require some modification, these should not be linked directly fr
 _**Note:** While it might not be obvious that this is needed in PowerBI desktop, the functions are written in a way so it will also ensure auto-refresh works once published._
 
 # Naming conventions
-The naming conventions of the files are defined as follows: **&lt;functionType&gt;.&lt;tool&gt;.&lt;primaryInput&gt;.&lt;application&gt;**
+The naming conventions of the files are defined as follows: **&lt;functionType&gt;.&lt;vendor (if applicable)&gt;.&lt;mainApplication&gt;.&lt;applicationDetail&gt;**
 
 | Parts  | Meaning | Notes |
 |--------|---------|-------|
 |functionType|Identifier if something is a function or a pattern |Typically "function" or "pattern", but cound be extended to e.g. "example", "data", etc.|
-|tool| Identifier if the function or pattern relates to a specific tool or not. |If not tool specific, "generic" is used|
-|primaryInput| Similar to PowerBI functions, it would be something like table, list, text, etc | |
-|application|Information what the function does|Can be further separated by dots to make things clearer. So for example: api.getKeysByBoardId makes an api call that retrieves keys by board id, or deletedEmptyColumns.pivot deletes emty columns using table pivoting|
+|vendor| Identifier if the function or pattern relates to a specific tool or not. |If not tool specific, it is omitted|
+|mainApplication| Core focus of the function or pattern, e.g. if it is an api call, expansion, cleansing, etc | |
+|applicationDetails|More Information what the function does|Can be further separated by dots to make things clearer. So for example: api.getKeysByBoardId makes an api call that retrieves keys by board id, or deletedEmptyColumns.pivot deletes emty columns using table pivoting|
 
 
 # Implementation of functions
