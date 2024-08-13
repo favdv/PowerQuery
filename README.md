@@ -26,7 +26,7 @@ The naming conventions of the files are defined as follows: **&lt;functionType&g
 |functionType|Identifier if something is a function or a pattern |Typically "function" or "pattern", but cound be extended to e.g. "example", "data", etc.|
 |vendor| Identifier if the function or pattern relates to a specific tool or not. |If not tool specific, it is omitted|
 |mainApplication| Core focus of the function or pattern, e.g. if it is an api call, expansion, cleansing, etc | |
-|applicationDetails|More Information what the function does|Can be further separated by dots to make things clearer. So for example: api.getKeysByBoardId makes an api call that retrieves keys by board id, or deletedEmptyColumns.pivot deletes emty columns using table pivoting|
+|applicationDetail|More Information what the function does|Can be further separated by dots to make things clearer. So for example: api.getKeysByBoardId makes an api call that retrieves keys by board id, or deletedEmptyColumns.pivot deletes emty columns using table pivoting|
 
 
 # Implementation of functions
