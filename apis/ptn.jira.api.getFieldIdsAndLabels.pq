@@ -15,8 +15,7 @@ and so on.
 *orderable and *searchable are not supported in the user defined fields, but it could be extended accordingly.
 They are shown in the columns by dfault too
 
-The navigable column is automativally included (via a logical column) as is the all column (which is all keys), 
-so by default you get five columns (all keys, the labels, and navigable searchable and orderable (logical values indicating if the field is also navigable,searchable and orderable (respectively).
+By default you get six columns (all keys, the labels, and all, navigable, searchable and orderable (logical values indicating if the field is also navigable,searchable and orderable (respectively).
 
 Ensure you modify your domain(s) to suit your specific requirements. 
 The source table needs to have a column with the jira domain.
@@ -113,6 +112,8 @@ let
             "key."& currentColumnName, JoinKind.LeftOuter) 
     in #"merge table"),
 
-    cleanup = Table.ReplaceValue(Table.RemoveColumns(createTable, List.Select(Table.ColumnNames(createTable), each Text.StartsWith(_, "key."))), null, false, Replacer.ReplaceValue, Table.ColumnNames(Table.RemoveColumns(createTable, List.Select(Table.ColumnNames(createTable), each Text.StartsWith(_, "key.")))))
+    cleanup = Table.ReplaceValue(Table.RemoveColumns(createTable, List.Select(Table.ColumnNames(createTable), each Text.StartsWith(_, "key."))), null, false, Replacer.ReplaceValue, Table.ColumnNames(Table.RemoveColumns(createTable, List.Select(Table.ColumnNames(createTable), each Text.StartsWith(_, "key."))))),
+    addAll = Table.AddColumn(cleanup, "all", each true),
+    Reorder = Table.ReorderColumns(addAll, List.InsertRange(List.RemoveItems(Table.ColumnNames(addAll), {"all"}), List.PositionOf(Table.ColumnNames(addAll), "name") + 1, {"all"}))
 in
-    cleanup
+    Reorder
