@@ -1,7 +1,42 @@
-/**/
+/* 
+This function is a jira specific pattern, which retrieves the field ids and associated jira labels for specific domains. 
 
-(domains as list,columnNames as list,fieldList as list)=>
+columnNames and fieldlists are optional.
+
+You can create a combination of columns, and some wildcards in linewith the api are supported. 
+
+For instance, you can use:
+{"*all"} to get all fields
+{"*navigable"} to get all navigable fields
+{"*all","-description"} to retrieve all fields apart from description, and so on. 
+{"*navigable","someotherfield"} to retrieve all navigable fields plus the extra field
+and so on.
+
+*orderable and *searchable are not supported in the user defined fields, but it could be extended accordingly.
+They are shown in the columns by dfault too
+
+The navigable column is automativally included (via a logical column) as is the all column (which is all keys), 
+so by default you get five columns (all keys, the labels, and navigable searchable and orderable (logical values indicating if the field is also navigable,searchable and orderable (respectively).
+
+Ensure you modify your domain(s) to suit your specific requirements. 
+The source table needs to have a column with the jira domain.
+
+Assuming the name of the function will be GetJiraFields, the Domain column is in Table1 Table1[Domain] and 
+you want for instance show an "all" column and a "selected" column with the parent and description fields, you could write the function as follows:  
+
+newStep = GetJiraFields(Table1[Domain], {"all","selected"},{{"*all"},{"parent,"description"}})
+
+This will add the 2 columns ("all" and "selected") to the table with a logical indicator of the specified fields (true/false).
+
+See also the README.md file in the repository for more information on how to implement this. 
+*/
+
+(domains as list, optional columnNames as nullable list, optional fieldList as nullable list) =>
 let
+    // Default values if columnNames or fieldList are null
+    columnNames = if columnNames = null then {} else columnNames,
+    fieldList = if fieldList = null then {} else fieldList,
+
     #"Get all labels" = let 
         domainList = domains,
         apiCall = Table.Distinct(Table.ExpandRecordColumn(Table.FromList(
@@ -17,7 +52,7 @@ let
                         Web.Contents(
                             "https://iagtech.atlassian.net",
                             [RelativePath = "/rest/api/3/field"]))){0},
-            Splitter.SplitByNothing(), null, null, ExtraValues.Error), "Column1",{"key", "name","navigable"})) 
+            Splitter.SplitByNothing(), null, null, ExtraValues.Error), "Column1",{"key", "name","navigable","searchable","orderable"})) 
     in apiCall,
 
     createTable = List.Accumulate(List.Zip({fieldList, columnNames}), #"Get all labels", (state, currentPair) => let
