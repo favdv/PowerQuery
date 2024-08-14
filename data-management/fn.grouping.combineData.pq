@@ -44,24 +44,23 @@ let
                 {{ tempColumnPrefix & ".Grp.sub.sub", each _}}
             ),
     
-    Combine =   Table.Distinct(
-                    Table.ExpandTableColumn(
-                        List.Accumulate(
+     Combine =   Table.Distinct(Table.ExpandTableColumn(List.Accumulate(
                             columnsToCombine,
                             SubSubGroup,
-                            (state, current) => Table.AddColumn(
-                            state,current & replaceSuffix,each Text.Combine(
-                                List.Transform(
-                                    Table.Column(Record.Field(_, tempColumnPrefix & ".Grp.sub.sub"), current), 
-                                    each Text.From(_)
-                                ),",")
-                            )
+                            (state, current) =>  
+                                if List.Contains(Table.ColumnNames(state), current & replaceSuffix) 
+                                then state 
+                                else Table.AddColumn(
+                                    state,current & replaceSuffix,each Text.Combine(
+                                        List.Transform(
+                                            Table.Column(Record.Field(_, tempColumnPrefix & ".Grp.sub.sub"), current), 
+                                            each Text.From(_)
+                                        ),",")
+                                    )
                         )
                         ,tempColumnPrefix & ".Grp.sub.sub",List.RemoveItems( 
                             Table.ColumnNames(Table.Combine(Table.Column(SubGroup,tempColumnPrefix & ".Grp.sub.sub"))),
                             List.InsertRange(groupBy,0,List.InsertRange(columnsToCombine,0,{"Index" & replaceSuffix,tempColumnPrefix & ".Grp.sub.ix"}))
-                        )
-                    )
-                )
+                        )))
 in
     Combine
