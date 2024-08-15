@@ -233,7 +233,7 @@ let
 in #"Get Keys"
 ```
 
-In this case, **"&lt;your domain&gt;"** needs to be replaced with the string (e.g. with **"https://xyz.atlassian.net"**) of your JIRA domain. While a reasonable question would be to ask why **Record.Field(_,Domains)** is not added to the Web.Contents area as this works in PowerBI desktop, there is a reason for it being implemented as it is. 
+In this case, **"&lt;your domain&gt;"** needs to be replaced with the string (e.g. with **"https://xyz.atlassian.net"**) of your JIRA domain omit the forward slash at the end of your domain, otherwise the funciton will return nothing). While a reasonable question would be to ask why **Record.Field(_,Domains)** is not added to the Web.Contents area as this works in PowerBI desktop, there is a reason for it being implemented as it is. 
 
 In the function above, if the domain does not match the string, the field will be populated with null. This can be changed to suit of course.
 
