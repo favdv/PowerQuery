@@ -46,7 +46,7 @@ let
         "<github url of the raw version of the function>"
       )
     ), 
-    #shared
+    <content of the common.functions.array in the misc folder>
   )
 in Source
 ```
