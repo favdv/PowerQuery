@@ -1,7 +1,5 @@
 /*Common functions to use instead of #shared*/
-
-let
-    Source = [
+[
 Any.Type = Any.Type,
 Binary.ApproximateLength = Binary.ApproximateLength,
 Binary.Buffer = Binary.Buffer,
@@ -757,5 +755,3 @@ Web.BrowserContents = Web.BrowserContents,
 Web.Page = Web.Page
 
     ]
-in
-    Source
