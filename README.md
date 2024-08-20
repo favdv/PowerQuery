@@ -100,7 +100,7 @@ let Source = Record.FieldNames(#shared) in Source
 ```
 - A list with all functions available in your powerbi report. Since you can't use a fullstop for a custom function name, you could filter the list on items with a fullstop only to get the default functions.
 
-_**Note that Web.Contents is not in #shared, so even adding this to that array will not help with dynamic refreshing of data. So far the only option is to copy the function into a query.**_
+_**Note that some functions, like Web.Contents are not available in #shared, meaning that those will likely be treated as dynamic data sources. This currently mainly relates to API functions. To mitigate this, those would need to be copied into the powerBI report instead of referencing from the github repo.**_
 
 ## Copy the code as a new function in PowerBI
 
