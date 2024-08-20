@@ -75,6 +75,7 @@ Cons:
 - If the function is deleted, the report will break. To fix this, remove the references to the function and/or rewrite the function.
 - This option is not suitable for patterns.
 - Any bugs or changes introduced in the function within Github will be reflected in the report and could impact performance, functionality in PowerBi, etc.
+- Authentication might be required depending on the type of repo. _**Note:** Depending if the repository is public or private, you might need to authenticate. If it is a public repository, you can select the repo from the dropdown and perform authenticate anonymously._
 - Using this method stops auto-refresh as it assumes retrieving the code via a link to github is a dynamic data source when using #shared as the environment. To mitigate this, replace #shared with an array of specific functions. For instance, if the function only uses Table.AddColumn and Text.Replace functions, the function would look something like this:
 ```
 let
@@ -90,8 +91,14 @@ let
 	]
   )
 in Source
-```   
-- Authentication might be required depending on the type of repo. _**Note:** Depending if the repository is public or private, you might need to authenticate. If it is a public repository, you can select the repo from the dropdown and perform authenticate anonymously._
+```
+A full list of functions available can be found as follows:
+- Open a blank query
+- Copy the following function into the blank query:
+```
+let Source = Record.FieldNames(#shared) in Source
+```
+- A list with all functions available in your powerbi report. Since you can't use a fullstop for a custom function name, you could filter the list on items with a fullstop only to get the default functions. 
 
 ## Copy the code as a new function in PowerBI
 
