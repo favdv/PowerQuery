@@ -46,7 +46,7 @@ let
         "<github url of the raw version of the function>"
       )
     ), 
-    <content of the common.functions.array in the misc folder>
+    <array of functions>
   )
 in Source
 ```
@@ -75,7 +75,22 @@ Cons:
 - If the function is deleted, the report will break. To fix this, remove the references to the function and/or rewrite the function.
 - This option is not suitable for patterns.
 - Any bugs or changes introduced in the function within Github will be reflected in the report and could impact performance, functionality in PowerBi, etc.
-- Using this method stops auto-refresh as it assumes retrieving the code via a link to github is a dynamic data source when using #shared as the environment. To mitigate this, copy the content from misc/common.functions.array in place of #shared in the query - where possible, remove any functions not used in the function. 
+- Using this method stops auto-refresh as it assumes retrieving the code via a link to github is a dynamic data source when using #shared as the environment. To mitigate this, replace #shared with an array of specific functions. For instance, if the function only uses Table.AddColumn and Text.Replace functions, the function would look something like this:
+```
+let
+  Source = Expression.Evaluate(
+    Text.FromBinary(
+      Web.Contents(
+        "<github url of the raw version of the function>"
+      )
+    ), 
+    	[
+		Table.AddColumn = Table.AddColumn,
+		Text.Replace = Text.Replace
+	]
+  )
+in Source
+```   
 - Authentication might be required depending on the type of repo. _**Note:** Depending if the repository is public or private, you might need to authenticate. If it is a public repository, you can select the repo from the dropdown and perform authenticate anonymously._
 
 ## Copy the code as a new function in PowerBI
