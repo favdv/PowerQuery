@@ -1,20 +1,24 @@
-/* 
-When this function is called, all expandable columns are automatically expanded in the respective table.
-It is also possible to specify which columns not to expand via the ExcludedCols list.
-
-Iterator i does not need to be provided, unless you want to start expansion from a specific column (e.g. setting it to 1 ignores the first column, 2 ignores the first 2 and so on)
-See also the README.md file in the repository for more information on how to implement this. 
-
-Implementation (if the function is called expandAll and the table you want to expand is Table1 with colE and colF to be excluded): 
-newStep =expandAll(Table1,{"colE","colF"})
-
-TIP: If you only want to expand specific columns (e.g. you only want to fully expand colE and colF), you could use e.g. 
-newStep=expandAll(Table1,List.RemoveItems(Table.ColumnNames(Table1),{"colE","colF"}))
-
-*/
-
 let 
-ExpandAllCols = (previousStep as table, optional ExcludedCols as nullable list,optional i as nullable number) => let 
+functionName = "Table.ExpandColumns",
+doc = 
+  [
+    Documentation.Name =  "Auto Expand columns", 
+    Documentation.Description = "All columnswill be expanded apart from the columns that are excluded from the respective table. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace "&functionName&" with Query1 when calling the function.", 
+    Documentation.Examples = {
+          [
+            Description = "Expand all columns",
+            Code = functionName & "(Source)",
+            Result = "All columns are expanded."
+          ],
+          [
+            Description = "Expand all columns with exclusions",
+            Code = functionName & "(Source,{""colA"",""colE""})",
+            Result = "All columns are expanded apart form column E."
+          ]
+        }
+    
+  ],
+fn = (previousStep as table, optional ExcludedCols as nullable list,optional i as nullable number) => let 
  ExcludedCols = if ExcludedCols = null then {} else ExcludedCols,
  i = if i = null then 0 else i,
 
@@ -25,7 +29,7 @@ ExpandAllCols = (previousStep as table, optional ExcludedCols as nullable list,o
   Value.Is(Record.Field(_,columnNames{i}),type list)=true or 
   Value.Is(Record.Field(_,columnNames{i}),type table)=true or 
   Value.Is(Record.Field(_,columnNames{i}),type record)=true)) = 0 or List.Contains(ExcludedCols,columnNames{i}) = true
- then @ExpandAllCols(previousStep,ExcludedCols,i+1)
+ then @fn(previousStep,ExcludedCols,i+1)
  else let
  
  #"Expand list" = Table.ExpandListColumn(
@@ -60,7 +64,9 @@ ExpandAllCols = (previousStep as table, optional ExcludedCols as nullable list,o
   in expandTable
     
   in expandRecords
- in @ExpandAllCols(#"Expand record",ExcludedCols,i) 
+ in @fn(#"Expand record",ExcludedCols,i) 
  else previousStep 
  in processColumn
-in ExpandAllCols
+
+ in 
+Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
