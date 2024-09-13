@@ -21,10 +21,10 @@ fn = (previousStep as table, Domains as text, FilterIds as text, optional NewFil
 let NewFilterColumnName = if NewFilterColumnName = null then "jql" else NewFilterColumnName in 
 	Table.ExpandRecordColumn(
 	    Table.AddColumn(previousStep, NewFilterColumnName, each 
-	      if Text.From( Record.Field(_,Domains)) = "https://iagtech.atlassian.net" 
+	      if Text.From( Record.Field(_,Domains)) = "<domain>" 
 	      then 
 		    Json.Document(Web.Contents(
-	          "https://iagtech.atlassian.net",
+	          "<domain>",
 	          [RelativePath = "/rest/api/2/filter/" &Text.From( Record.Field(_,FilterIds))]
 	        )) 
 	      else null
