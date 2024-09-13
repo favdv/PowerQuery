@@ -7,10 +7,10 @@ Note that some snippets can be copied and used immediately, while others need so
 The repository is set up in a way to easily target specific functions or patterns by seprating them into categories, like apis, data management (expanding/removing columns), etc.  
 
 ## Functions
- Functions can be used without any user amendments and they should work immediately if used properly.
+ Functions can be used without any user amendments and they should work immediately if used properly. To make them recognisable, their extension is *.pq*
 
 ## Patterns
-Patterns typically requires some user updating before they can be used. 
+Patterns typically requires some user updating before they can be used. To make them recognisable, their extension is *.pt*
 
 Typical example is functions calling APIs since the Web.Contents function in PowerBi requires the domain to be hardcoded. So the user needs to hardcode their own domain in. 
 
