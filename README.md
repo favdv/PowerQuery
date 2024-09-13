@@ -10,13 +10,16 @@ The repository is set up in a way to easily target specific functions or pattern
  Functions can be used without any user amendments and they should work immediately if used properly. To make them recognisable, their extension is *.pq*
 
 ## Patterns
-Patterns typically requires some user updating before they can be used. To make them recognisable, their extension is *.pt*
+Patterns typically requires some user updating before they can be used. To make them recognisable, their extension is *.pp*
 
 Typical example is functions calling APIs since the Web.Contents function in PowerBi requires the domain to be hardcoded. So the user needs to hardcode their own domain in. 
 
 Since patterns require some modification, these should not be linked directly from github
 
 _**Note:** While it might not be obvious that this is needed in PowerBI desktop, the functions are written in a way so it will also ensure auto-refresh works once published._
+
+## Misc
+In the folder misc, some other functionality is available that might be useful for specific cases. For instance, a table with test data, which is in essence also a pattern as it can be modified to suit. It couls also be used as is.  To make them recognisable, their extension is *.pt*
 
 # Naming conventions
 The naming conventions of the files are defined as follows: **&lt;functionType&gt;.&lt;vendor (if applicable)&gt;.&lt;mainApplication&gt;.&lt;applicationDetail&gt;**
