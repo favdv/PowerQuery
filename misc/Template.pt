@@ -1,0 +1,23 @@
+let 
+functionName = "",
+doc = [
+    Documentation.Name =  "...", 
+    Documentation.Description = "...", 
+    Documentation.Examples = {
+          [
+            Description = "...",
+            Code = functionName & "...",
+            Result = "..."
+          ],
+          [
+            Description = "...",
+            Code = functionName & "...",
+            Result = "..."
+          ]
+        }
+    
+  ],
+  fn = (previousStep as table, ...) =>
+  ...
+​ in 
+Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
