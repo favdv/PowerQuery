@@ -1,5 +1,4 @@
 let 
-functionName = "Table.RemoveEmptyColumns",
 doc = 
   [
     Documentation.Name =  "Remove Empty columns", 
