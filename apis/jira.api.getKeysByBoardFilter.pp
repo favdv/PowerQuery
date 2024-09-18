@@ -2,6 +2,7 @@ let
 functionName = "Jira.GetKeysByBoardFilter",
 doc = 
   [
+    Documentation.Api = "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get",
     Documentation.Name =  "Get JIRA Keys by Board Filter", 
     Documentation.Description = "This function is a jira specific pattern, which retrieves the JIRA keys for specific board filters. Ensure you modify your domain(s) to suit your specific requirements. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace "&functionName&" with Query1 when calling the function.", 
     Documentation.Examples = {
@@ -27,7 +28,7 @@ let NewKeyColumnName = if NewKeyColumnName = null then "keys" else NewKeyColumnN
             each Text.BeforeDelimiter(Record.Field(_,Filters)," ORDER BY ",0)),NewKeyColumnName, each 
 	            if Text.From( Record.Field(_,Domains)) = "<domain>" 
 	            then Json.Document(Web.Contents("<domain>",
-	              [RelativePath = "/rest/api/2/search/",
+	              [RelativePath = "/rest/api/3/search/",
 	               Query = [
 	                 jql=Text.From(Record.Field(_,Filters)) ,
 			 		 fields="key",
