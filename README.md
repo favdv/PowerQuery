@@ -10,7 +10,7 @@ The repository is set up in a way to easily target specific functions or pattern
  Functions can be used without any user amendments and they should work immediately if used properly. To make them recognisable, their extension is *.pq* (Power Queries)
 
 ## Patterns
-Patterns typically requires some user updating before they can be used. To make them recognisable, their extension is *.pp* (PQ pattern)
+Patterns typically requires some user updating before they can be used. To make them recognisable, their extension is *.pp* (PQ Pattern)
 
 Typical example is functions calling APIs since the Web.Contents function in PowerBi requires the domain to be hardcoded. So the user needs to hardcode their own domain in. 
 
@@ -26,11 +26,10 @@ There is also an empty template in there that could be used as a starting point 
 To make them recognisable, their extension is *.pt* (PQ Templates)
 
 # Naming conventions
-The naming conventions of the files are defined as follows: **&lt;functionType&gt;.&lt;vendor (if applicable)&gt;.&lt;mainApplication&gt;.&lt;applicationDetail&gt;**
+The naming conventions of the files are defined as follows: **&lt;vendor (if applicable)&gt;.&lt;mainApplication&gt;.&lt;applicationDetail&gt;**
 
 | Parts  | Meaning | Notes |
 |--------|---------|-------|
-|functionType|Identifier if something is a function or a pattern |Typically "function" or "pattern", but cound be extended to e.g. "example", "data", etc.|
 |vendor| Identifier if the function or pattern relates to a specific tool or not. |If not tool specific, it is omitted|
 |mainApplication| Core focus of the function or pattern, e.g. if it is an api call, expansion, cleansing, etc | |
 |applicationDetail|More Information what the function does|Can be further separated by dots to make things clearer. So for example: api.getKeysByBoardId makes an api call that retrieves keys by board id, or deletedEmptyColumns.pivot deletes emty columns using table pivoting|
@@ -69,15 +68,14 @@ let
   #"Delete my columns" = DeleteCols(Table1)
 in #"Delete my columns"
 ```
-
-Pros:
+Pros
 - The function is always up to date, so any amendments made to the code are automatically reflected.
 - The function can be updated without interaction with the report itself. (if preferred, this repo can be forked and maintained independently.
 - No need for the powerBI user or developer to maintain the function.
 - The function can be called in any position in any table within the PowerBi report.
 - If used across powerBi reports, the functionality will be consistent.  
 
-Cons:
+Cons
 - If the function is moved, the report will break. To fix a moved function, the link will need to be updated.
 - If the function is deleted, the report will break. To fix this, remove the references to the function and/or rewrite the function.
 - This option is not suitable for patterns.
@@ -108,7 +106,7 @@ let Source = Record.FieldNames(#shared) in Source
 - A list with all functions available in your powerbi report. Since you can't use a fullstop for a custom function name, you could filter the list on items with a fullstop only to get the default functions.
 
 _**Note that some functions, like Web.Contents are not available in #shared, meaning that those will likely be treated as dynamic data sources. This currently mainly relates to API functions. To mitigate this, those would need to be copied into the powerBI report instead of referencing from the github repo.**_
-
+|
 ## Copy the code as a new function in PowerBI
 
 In PowerBI: 
