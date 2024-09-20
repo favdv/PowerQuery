@@ -1,8 +1,8 @@
 let 
-functionName = "Table.RemoveEmptyColumns",
 doc = 
   [
     Documentation.Name =  "Remove Empty columns", 
+    Documentation.FunctionName =  "Table.RemoveEmptyColumns", 
     Documentation.Description = "All empty columns (columns that only contain null values) will be removed from the respective table. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace "&functionName&" with Query1 when calling the function.", 
     Documentation.Examples = {
           [
