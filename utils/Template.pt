@@ -6,12 +6,12 @@ doc = [
     Documentation.Examples = {
           [
             Description = "...",
-            Code = functionName & "...",
+            Code = "FunctionName(...)",
             Result = "..."
           ],
           [
             Description = "...",
-            Code = functionName & "...",
+            Code = "FunctionName(...)",
             Result = "..."
           ]
         }
