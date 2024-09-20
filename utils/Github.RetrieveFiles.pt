@@ -9,11 +9,9 @@
 //the "functionList" record in the "AddFunctionRecord" step might need updating on occasion. 
 //The "List.GetSharedFunctions.pt" can be used to get the shared functions. 
 
+(repo as text, extensions as list, functionNameField as text, optional createFunctions as nullable logical)=>
 let
-    repo = #"Github Repo",
-    extensions = {".pq"},
-    functionNameField = "Documentation.FunctionName",
-    createFunctions = true,
+    createFunctions = if createFunctions = null then true else createFunctions,
 
     GetRepoInfo =  
         Table.SelectRows(
