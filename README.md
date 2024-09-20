@@ -9,31 +9,14 @@ The repository is set up in a way to easily target specific functions or pattern
 ## Functions
  Functions can be used without any user amendments and they should work immediately if used properly. To make them recognisable, their extension is *.pq* (Power Queries)
 
-## Patterns
-Patterns typically requires some user updating before they can be used. To make them recognisable, their extension is *.pp* (PQ Pattern)
+## Templates
+Patterns typically might require some user updating before they can be used. To make them recognisable, their extension is *.pt* (PQ Templates)
 
 Typical example is functions calling APIs since the Web.Contents function in PowerBi requires the domain to be hardcoded. So the user needs to hardcode their own domain in. 
 
 Since patterns require some modification, these should not be linked directly from github
 
 _**Note:** While it might not be obvious that this is needed in PowerBI desktop, the functions are written in a way so it will also ensure auto-refresh works once published._
-
-## Misc
-In the folder misc, a range of different files are available that might be useful for specific cases. For instance, a table with test data, which is in essence also a pattern as it can be modified to suit. It could also be used as is in some cases.
-
-There is also an empty template in there that could be used as a starting point to write a new function.
-
-To make them recognisable, their extension is *.pt* (PQ Templates)
-
-# Naming conventions
-The naming conventions of the files are defined as follows: **&lt;vendor (if applicable)&gt;.&lt;mainApplication&gt;.&lt;applicationDetail&gt;**
-
-| Parts  | Meaning | Notes |
-|--------|---------|-------|
-|vendor| Identifier if the function or pattern relates to a specific tool or not. |If not tool specific, it is omitted|
-|mainApplication| Core focus of the function or pattern, e.g. if it is an api call, expansion, cleansing, etc | |
-|applicationDetail|More Information what the function does|Can be further separated by dots to make things clearer. So for example: api.getKeysByBoardId makes an api call that retrieves keys by board id, or deletedEmptyColumns.pivot deletes emty columns using table pivoting|
-
 
 # Implementation of functions
 There are different ways to use the functions available in the repo. This provides some guidance on options with an example (based on a simple function). In this section, function [DeleteEmptyColumnsViaLooping](https://github.com/favdv/powerbi-powerquery-toolkit/blob/main/generic/DeleteEmptyColumnsViaLooping.pq) is being used as it is small, but the process is the same for all functions.
@@ -230,7 +213,7 @@ Cons:
 - If the intent is to call the functionality more than once, you have copy and update the step multiple times, making it more difficult to maintain if somehting is incorrect.
 - For more complex functions, you might end up creating a [partitioned step](https://learn.microsoft.com/en-us/analysis-services/tom/table-partitions?view=asallproducts-allversions), which could cause refresh issues, especially when you're working with multiple external sources (an error stating that a source cannot be accessed directly or similar will be shown).
 
-# Using Patterns
+# Using Templates
 As mentioned, a pattern is defined as a function where some modification is needed. A typical example is a web service call, e.g. 
 
 ```
