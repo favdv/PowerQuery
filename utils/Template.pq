@@ -17,7 +17,13 @@ doc = [
         }
     
   ],
-  fn = (previousStep as table, ...) =>
-  ...
+  fn = (previousStep as table, ...) => 
+
+//Copy your function here
+
+let Source in Source
+
+//End of your function  
+
 ​ in 
 Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
