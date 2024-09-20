@@ -4,16 +4,16 @@ doc =
     Documentation.Api = "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-fields/#api-rest-api-3-field-get",
     Documentation.Name =  "Get JIRA Field Names", 
     Documentation.FunctionName = "Jira.GetFieldLabelsByFieldId",
-    Documentation.Description = "This function is a jira specific pattern, which retrieves the user friendly field names based o nthe internal field names. Ensure you modify your domain(s) to suit your specific requirements. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace "&functionName&" with Query1 when calling the function.", 
+    Documentation.Description = "This function is a jira specific pattern, which retrieves the user friendly field names based o nthe internal field names. Ensure you modify your domain(s) to suit your specific requirements. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace FunctionName with Query1 when calling the function.", 
     Documentation.Examples = {
           [
             Description = "Retrieve names for default columns only",
-            Code = functionName&"(Source[DomainColumn])",
+            Code = "FunctionName(Source[DomainColumn])",
             Result = "Six columns are returned (all internal field names for the projects (keys), the labels (name), and all, navigable, searchable and orderable fields (logical values indicating if the field is also navigable,searchable and orderable (respectively)), i.e. *all, *navigable, *searchable and *orderable"
           ],
           [
             Description = "Retrieve names for default columns and field selection two additional columns",
-            Code = functionName&"(Source[DomainColumn],{""description and parent only"",""everything apart from description""},{{""description"",""parent""},{""*all"",""-description""}})",
+            Code = "FunctionName(Source[DomainColumn],{""description and parent only"",""everything apart from description""},{{""description"",""parent""},{""*all"",""-description""}})",
             Result = "Eight columns are returned (all internal field names for the projects (keys), the labels (name), and all, navigable, searchable and orderable fields (logical values indicating if the field is also navigable,searchable and orderable (respectively)), i.e. *all, *navigable, *searchable and *orderable as well as a column 'description and parent only' with only those 2 fields set to true and a column 'everything apart from description' with only description set to false"
           ]
 	}
