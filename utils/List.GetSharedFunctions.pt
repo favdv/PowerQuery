@@ -1,0 +1,21 @@
+//Create a list of functions that can be copied into the Github functions template
+//Shouldn't be needed often, but on occasions additional functions might be added by Microsoft or tool suppliers you might need. 
+//The removedList allows for exclusions in the list.
+
+let
+    
+    RemoveList = {"Query1","Github Repo","Test Data","fn"},
+    Source = 
+            
+                Table.AddIndexColumn(
+                    Table.SelectRows(
+                        Table.Sort(
+                            Table.FromList(Record.FieldNames( #shared), Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+                            {{"Column1", Order.Ascending}}
+                        ), 
+                        each not List.Contains(RemoveList, [Column1])
+                ), "Index", 0, 1, Int64.Type
+                ) 
+                
+in
+    Table.AddColumn(Source,"Functions",each if [Index] = List.Max(Source[Index]) then [Column1] & "=" & [Column1] else [Column1] & "=" & [Column1] & ",")[Functions]
