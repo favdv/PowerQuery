@@ -21,7 +21,7 @@ doc = [
 
 //Copy your function here
 
-let Source in Source
+""
 
 //End of your function  
 
