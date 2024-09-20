@@ -1,7 +1,7 @@
 let 
-functionName = "Sample.Function",
 doc = [
     Documentation.Name =  "...", 
+    Documentation.FunctionName = "Sample.Function",
     Documentation.Description = "...", 
     Documentation.Examples = {
           [
