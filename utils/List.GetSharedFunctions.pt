@@ -1,6 +1,7 @@
-//Create a list of functions that can be copied into the Github functions template
+//Create a list of functions that can be copied into the Github functions template.
+//Simply copy this function in a blank query and update the "RemoveList" list to omit any parameters and custom fumctions.
 //Shouldn't be needed often, but on occasions additional functions might be added by Microsoft or tool suppliers you might need. 
-//The removedList allows for exclusions in the list.
+
 
 let
     
