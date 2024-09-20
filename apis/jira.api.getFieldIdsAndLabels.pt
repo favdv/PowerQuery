@@ -1,9 +1,9 @@
 let 
-functionName = "Jira.GetFieldLabelsByFieldId",
 doc = 
   [
     Documentation.Api = "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-fields/#api-rest-api-3-field-get",
     Documentation.Name =  "Get JIRA Field Names", 
+    Documentation.FunctionName = "Jira.GetFieldLabelsByFieldId",
     Documentation.Description = "This function is a jira specific pattern, which retrieves the user friendly field names based o nthe internal field names. Ensure you modify your domain(s) to suit your specific requirements. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace "&functionName&" with Query1 when calling the function.", 
     Documentation.Examples = {
           [
