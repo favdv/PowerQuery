@@ -1,9 +1,9 @@
 let 
-functionName = "Jira.SplitUrl",
 doc = 
 
   [
     Documentation.Name =  "Split Jira URL", 
+    Documentation.FunctionName = "Jira.SplitUrl",
     Documentation.Description = "Extracts the domain, the board id and the project id from a JIRA board or backlog url. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace "&functionName &" with Query1 when calling the function.", 
     Documentation.Examples = {
           [
