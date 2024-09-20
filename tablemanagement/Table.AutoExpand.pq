@@ -1,8 +1,8 @@
 let 
-functionName = "Table.ExpandColumns",
 doc = 
   [
     Documentation.Name =  "Auto Expand columns", 
+    Documentation.FunctionName = "Table.ExpandColumns", 
     Documentation.Description = "All columns will be expanded apart from the columns that are excluded from the respective table. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace "&functionName&" with Query1 when calling the function.", 
     Documentation.Examples = {
           [
