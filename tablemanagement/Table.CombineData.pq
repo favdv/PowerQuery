@@ -3,16 +3,16 @@ doc = [
     Documentation.Name =  "Combine Data", 
     Documentation.FunctionName = "Table.CombineData",
     Documentation.Description = 
-    "This function batches data in a number of sets identified in the groupCount based on the grouped information. The function was initially designed for two use cases: Deduplication of key data, and batching infomation to manage API requests that might be throttled. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace "& functionName & " with Query1 when calling the function.", 
+    "This function batches data in a number of sets identified in the groupCount based on the grouped information. The function was initially designed for two use cases: Deduplication of key data, and batching infomation to manage API requests that might be throttled. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace FunctionName with Query1 when calling the function.", 
     Documentation.Examples = {
           [
             Description = "Combining all data on a single line based on the group informaton. (i.e. deduplicate the grouped data)",
-            Code = "Table.CombineData(Source,{""Domain"",""Project""})",
+            Code = "FunctionName(Source,{""Domain"",""Project""})",
             Result = "The table will be grouped by the Domain and Project columns (same as Table.Group) and the records for all other columns will be combined on a single row in a comma separated list, e.g. all board IDs will be in a single record, keys in a single record, etc."
           ],
           [
             Description = "Combining selected data on a single line based on the group informaton. (e.g. grouping all keys that could be used to call info based on all keys)",
-            Code = functionName & "(Source,{""Domain"",""Project""},{""key""})",
+            Code = "FunctionName(Source,{""Domain"",""Project""},{""key""})",
             Result = "The table will be grouped by the Domain and Project columns (same as Table.Group) and the records for the key column will be combined on a single row in a comma separated list. All other columns remain as they are."
           ],
           [
