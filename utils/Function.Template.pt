@@ -16,10 +16,10 @@ let
             ]
         }
     ],
-    fn = (previousStep as table) as table => 
+    fn = (previousStep as table) => 
         let 
         
-            Source =   previousStep //Replace this with your actual function logic
+            Source = "Replace this with your actual function logic"
         in 
             Source
 in 
