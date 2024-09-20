@@ -1,8 +1,8 @@
 let 
 doc = [
-    Documentation.Name =  "...", 
+    Documentation.Name =  Function Template", 
     Documentation.FunctionName = "Sample.Function",
-    Documentation.Description = "...", 
+    Documentation.Description = "A Template that can be used as a starting point to implement your own functions, 
     Documentation.Examples = {
           [
             Description = "...",
