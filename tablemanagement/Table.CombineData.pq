@@ -17,7 +17,7 @@ doc = [
           ],
           [
             Description = "Combining selected data in batches of a maximum number of items per line based on the group informaton. . (e.g. grouping all keys that could be used to call info based on all keys, but enabled getting the data based on a number of keys at the time to limit throttling issues)",
-            Code = functionName & "(Source,{""Domain"",""Project""},{""key"",""assigees""},50)",
+            Code = "FunctionName(Source,{""Domain"",""Project""},{""key"",""assigees""},50)",
             Result = "The table will be grouped by the Domain and Project columns (same as Table.Group) and the records for the key column and assignees column will be combined in a comma separated list in batches of 50. All other columns remain as they are."
           ]
 
