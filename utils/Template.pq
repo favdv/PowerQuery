@@ -1,5 +1,5 @@
 let 
-functionName = "",
+functionName = "Sample.Function",
 doc = [
     Documentation.Name =  "...", 
     Documentation.Description = "...", 
@@ -19,11 +19,7 @@ doc = [
   ],
   fn = (previousStep as table, ...) => 
 
-//Copy your function here
-
-""
-
-//End of your function  
+let Source = "Copy your function here" in Source
 
 ​ in 
 Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
