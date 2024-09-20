@@ -1,9 +1,9 @@
 let 
-functionName = "Jira.GetFieldsByKey",
 doc = 
   [
     Documentation.Api = "https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get",
     Documentation.Name =  "Get JIRA Fields by Key", 
+    Documentation.FunctionName =  "Jira.GetFieldsByKey", 
     Documentation.Description = "This function is a jira specific pattern, which retrieves the selected JIRA fields for specific keys. Ensure you modify your domain(s) to suit your specific requirements. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace "&functionName&" with Query1 when calling the function.", 
     Documentation.Examples = {
           [
