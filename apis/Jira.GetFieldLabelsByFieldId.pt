@@ -36,7 +36,7 @@ let
                 else 
                     Json.Document(
                         Web.Contents(
-                            "https://iagtech.atlassian.net",
+                            "<domain>",
                             [RelativePath = "/rest/api/3/field"]))){0},
             Splitter.SplitByNothing(), null, null, ExtraValues.Error), "Column1",{"key", "name","navigable","searchable","orderable"})),
 
