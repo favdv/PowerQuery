@@ -213,6 +213,50 @@ Cons:
 - If the intent is to call the functionality more than once, you have copy and update the step multiple times, making it more difficult to maintain if somehting is incorrect.
 - For more complex functions, you might end up creating a [partitioned step](https://learn.microsoft.com/en-us/analysis-services/tom/table-partitions?view=asallproducts-allversions), which could cause refresh issues, especially when you're working with multiple external sources (an error stating that a source cannot be accessed directly or similar will be shown).
 
+## Retrieve repo directly into PowerBI  
+You can retrieve information directly from Github using the Github.RetrieveFiles.pt function un the Utils folder. Simply copy the fnction in a blank query.
+
+To run the query, create a second blank query and copy the following code in:
+```
+let
+    Source = Query1()
+in
+    Source
+```
+
+_**Note:** In this case the query that the function was copied into was called Query1 - rename as appropriate._
+
+Now it is called, you can continue building your table and call the functions in the table as follows with the relevant function name in the square brackets:
+
+```
+let
+    Source = Query( ),
+
+    Data = <your data>,
+
+     ExpandAll = Source[Table.ExpandAllColumns](Data)
+
+in
+    ExpandAll
+```    
+
+_**Note:** For more information, see also [https://www.linkedin.com/pulse/using-power-queries-directly-from-github-repository-van-der-vorst-wm6pe/?trackingId=yM4vQH%2FTTwmy%2BR4AayQCig%3D%3D](https://www.linkedin.com/pulse/using-power-queries-directly-from-github-repository-van-der-vorst-wm6pe/?trackingId=yM4vQH%2FTTwmy%2BR4AayQCig%3D%3D)._
+
+Pros:
+- The function is always up to date, so any amendments made to the code are automatically reflected.
+- The function can be updated without interaction with the report itself. (if preferred, this repo can be forked and maintained independently.
+- No need for the powerBI user or developer to maintain the function.
+- The function can be called in any position in any table within the PowerBi report.
+- If used across powerBi reports, the functionality will be consistent.  
+- As the repo with functions grows, so will the list of available functions.
+- Rereshing the report once published will work  
+
+Cons:
+- Authentication might be requireddepending on the repo.
+- Any detrimental changes (deletion, moving a function, introduction of bugs) to the function in Github will be reflected in the report.
+- Depending on the filters set, functions created might not work appropriately. In this repo, oly items with extension .pq are considered out of the box functions
+- The function might occasionally need updated when new #shared functions are used.
+
 # Using Templates
 As mentioned, a pattern is defined as a function where some modification is needed. A typical example is a web service call, e.g. 
 
