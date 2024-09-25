@@ -20,10 +20,10 @@ fn =
 (SourceTable as table, Domains as text,keys as text)=> 
         Table.ExpandListColumn( 
             Table.ExpandRecordColumn(
-                Table.AddColumn(SourceTable, "comments", each if Record.Field(_,Domains) = "https://iagtech.atlassian.net" then  
+                Table.AddColumn(SourceTable, "comments", each if Record.Field(_,Domains) = "<domain>" then  
                     Json.Document(
                         Web.Contents(
-                            "https://iagtech.atlassian.net",
+                            "<domain>",
                             [RelativePath = "rest/api/3/issue/" & Record.Field(_,keys) &"/comment",Query=[expand="renderedBody"]]
                         )
                     )
