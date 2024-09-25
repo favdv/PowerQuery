@@ -1,9 +1,11 @@
-//Create a list of functions that can be copied into the Github functions template.
-//Simply copy this function in a blank query and update the "SelectionList" list to omit any parameters and custom fumctions.
-//You can either include (Allow) or excluse (Disallow) items. The function checks whether the record name starts with any of the values.
-//Shouldn't be needed often, but on occasions additional functions might be added by Microsoft or tool suppliers you might need. 
-
-let
+let 
+    doc = [
+        Documentation.Name = "get Shared Functions", 
+        Documentation.FunctionName = "List.GetSharedFunctions",
+        Documentation.Description = "Create a list of functions that can be copied into the Github functions template. Simply copy this function in a blank query and update the 'SelectionList' list to omit any parameters and custom fumctions. You can either include (Allow) or excluse (Disallow) items. The function checks whether the record name starts with any of the values. Shouldn't be needed often, but on occasions additional functions might be added by Microsoft or tool suppliers you might need. "
+        ],
+    fn = () => 
+        let
     SelectionListType = "Allow", //Allow or Disallow
     SelectionList = {"Table", "Value", "Int64", "Record","List","Replacer","Number","Text","Splitter","ExtraValues","RelativePosition"},
     Source = 
@@ -19,3 +21,5 @@ let
         ) 
 in
     Table.AddColumn(Source, "Functions", each if [Index] = List.Max(Source[Index]) then [Column1] & "=" & [Column1] else [Column1] & "=" & [Column1] & ",")[Functions]
+in 
+    Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
