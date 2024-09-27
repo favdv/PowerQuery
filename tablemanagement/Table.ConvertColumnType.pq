@@ -43,12 +43,18 @@ let
                 // Check if the column contains only datetime values
                 isDateTime = List.AllTrue(List.Transform(convertedValues, each Value.Is(_, type datetime))),
                 // Check if the column contains only date values
+                isDate = List.AllTrue(List.Transform(convertedValues, each Value.Is(_, type date))),
+                // Check if the column contains only time values
+                isTime = List.AllTrue(List.Transform(convertedValues, each Value.Is(_, type time))),
+                // Check if the column contains only date values
                 isText = List.AllTrue(List.Transform(convertedValues, each Value.Is(_, type text))),
                 // Determine the type based on the order
                 changeType = if isLogical then type logical
                              else if isInt then Int64.Type
                              else if isDateTimeZone then type datetimezone
                              else if isDateTime then type datetime
+                             else if isDate then type date
+                             else if isTime then type time
                              else if isNumber then type number
                              else if isText then type text
                              else type any
@@ -65,5 +71,3 @@ in
     TransformColumnTypes
 in 
     Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
-
-
