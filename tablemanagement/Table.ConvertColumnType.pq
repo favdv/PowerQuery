@@ -2,12 +2,12 @@ let
     doc = [
         Documentation.Name = "Column Conversion", 
         Documentation.FunctionName = "Table.ConvertColumns",
-        Documentation.Description = "This function loops through all rows and columns and tries to determine the best type for the column. Unlike the default function, no column names need to be hardcoded. It is possible to specify the  order of type processing (which can help to determin if a column with 0 and 1 only is a logical or numeric column. The function also attempts to convert numbers and dates entered as string values to actual numbers and dates. ", 
+        Documentation.Description = "This function loops through all rows and columns and tries to determine the best type for the column. Unlike the default function, no column names need to be hardcoded. It is possible to specify the  order of type processing (which can help to determin if a column with 0 and 1 only is a logical or numeric column. The function also attempts to convert numbers and dates entered as string values to actual numbers and dates. By default the sampleSize (number of rows the type is based on) is set 1000", 
         Documentation.Examples = {
             [
                 Description = "Convert with the default type ordering",
-                Code = "Table.ConvertColumns(Source)",
-                Result = "Converts the columns in the Source table in the order 'type datetimezone, type datetime, type date, type time, type logical, Int64.Type, type number, type text', so 0 and 1 are interpreted as logical"
+                Code = "Table.ConvertColumns(Source,null,2000)",
+                Result = "Converts the columns in the Source table based on 2000 records in the order 'type datetimezone, type datetime, type date, type time, type logical, Int64.Type, type number, type text', so 0 and 1 are interpreted as logical"
             ],
             [
                 Description = "Convert with the specific type ordering",
@@ -16,8 +16,14 @@ let
             ]
         }
     ],
-    fn = (previousStep as table, optional typeOrder as nullable list) =>
+    fn = (previousStep as table, optional typeOrder as nullable list, optional sampleSize as nullable number) =>
 let
+    // Set default sample size to 1000 if not provided
+    sampleSize = if sampleSize <> null then sampleSize else 1000,
+    
+    // Sample the first sampleSize rows
+    sampledTable = Table.FirstN(previousStep, sampleSize),
+    
     typeOrder = if typeOrder <> null then typeOrder else {type datetimezone, type datetime, type date, type time, type logical, Int64.Type, type number, type text},
     
     // Function to determine the best type for a column
@@ -46,7 +52,7 @@ let
                 isDate = List.AllTrue(List.Transform(convertedValues, each Value.Is(_, type date))),
                 // Check if the column contains only time values
                 isTime = List.AllTrue(List.Transform(convertedValues, each Value.Is(_, type time))),
-                // Check if the column contains only date values
+                // Check if the column contains only text values
                 isText = List.AllTrue(List.Transform(convertedValues, each Value.Is(_, type text))),
                 // Determine the type based on the order
                 changeType = if isLogical then type logical
@@ -63,11 +69,12 @@ let
     
     // Function to transform the column types using List.Accumulate
     TransformColumnTypes = List.Accumulate(
-        Table.ColumnNames(previousStep),
-        previousStep,
+        Table.ColumnNames(sampledTable),
+        sampledTable,
         (state, currentColumn) => Table.TransformColumnTypes(state, {{currentColumn, DetermineColumnType(Table.Column(state, currentColumn))}})
     )
 in
     TransformColumnTypes
+
 in 
     Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
