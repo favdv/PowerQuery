@@ -2,7 +2,7 @@ let
     doc = [
         Documentation.Name = "Column Conversion", 
         Documentation.FunctionName = "Table.ConvertColumns",
-        Documentation.Description = "This function loops through all rows and columns and tries to determine the best type for the column. Unlike the default function, no column names need to be hardcoded. It is possible to specify the  order of type processing (which can help to determin if a column with 0 and 1 only is a logical or numeric column. The function also attempts to convert numbers and dates entered as string values to actual numbers and dates. By default the sampleSize (number of rows the type is based on) is set 1000", 
+        Documentation.Description = "This function loops through all rows and columns and tries to determine the best type for the column. Unlike the default function, no column names need to be hardcoded. It is possible to specify the  order of type processing (which can help to determin if a column with 0 and 1 only is a logical or numeric column. The function also attempts to convert numbers and dates entered as string values to actual numbers and dates. By default the sampleSize (number of rows the type is based on) is set 1000. COlumns with complex types (nested lists, etc) will be set to any by default.", 
         Documentation.Examples = {
             [
                 Description = "Convert with the default type ordering",
@@ -31,13 +31,16 @@ let
     let
         // Remove null values for type detection
         nonNullValues = List.RemoveNulls(column),
+        // Check if the column contains complex types
+        containsComplexType = List.AnyTrue(List.Transform(nonNullValues, each Value.Is(_, type list) or Value.Is(_, type record) or Value.Is(_, type binary) or Value.Is(_, type function) or Value.Is(_, type table))),
         // Check if the column is empty after removing nulls
-        changeType = if List.Count(nonNullValues) = 0 then type any else
+        changeType = if List.Count(nonNullValues) = 0 or containsComplexType then type any else
             let
                 // Attempt to convert text values to other types
                 convertedValues = List.Transform(nonNullValues, each try if Value.Is(_, type text) then 
                      try Number.FromText(_) otherwise try DateTime.FromText(_) otherwise _ 
                     else _ otherwise _),
+                
                 // Check if the column contains only logical values
                 isLogical = List.AllTrue(List.Transform(convertedValues, each Value.Is(_, type logical))),
                 // Check if the column contains only Int64 values
@@ -75,6 +78,7 @@ let
     )
 in
     TransformColumnTypes
+
 
 in 
     Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
