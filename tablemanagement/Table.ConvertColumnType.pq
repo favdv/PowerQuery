@@ -2,7 +2,7 @@ let
     doc = [
         Documentation.Name = "Column Conversion", 
         Documentation.FunctionName = "Table.ConvertColumns",
-        Documentation.Description = "This function loops through all rows and columns and tries to determine the best type for the column. Unlike the default function, no column names need to be hardcoded. For performance reasons, you can change the baseline (number of records the assessment is made on. If set to a lower number, it becomes faster, but potentially less accurate and vice versa.", 
+        Documentation.Description = "This function loops through all rows and columns and tries to determine the best type for the column. Unlike the default function, no column names need to be hardcoded. For performance reasons, you can change the baseline (number of records the assessment is made on). If set to a lower number, it becomes faster, but potentially less accurate and vice versa.", 
         Documentation.Examples = {
             [
                 Description = "Convert based on 500 records",
