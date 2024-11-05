@@ -519,6 +519,22 @@
             "lineageTag": "d8fd3a0a-2ed1-4295-876d-853141816cd7",
             "sourceColumn": "colF.columnB",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Column",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": "if(ISBLANK(Query1[colA]),1,0)",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "b6a8ccda-c6fc-4e7f-83c0-d82ddbd5e377",
+            "summarizeBy": "sum",
+            "type": "calculated"
           }
         ],
         "lineageTag": "dac94621-8a6e-4a90-90ed-799de828882a",
