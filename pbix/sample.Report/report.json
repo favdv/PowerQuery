@@ -1,0 +1,42 @@
+{
+  "config": "{\"version\":\"5.44\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.59\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "b06a59a45a8961c40c4d",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"c0255f87357a417b37e9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.448891554591802,\"y\":0,\"z\":0,\"width\":1269.9310249371383,\"height\":279.68719001591734,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Query1.colA\"},{\"queryRef\":\"Query1.colA.columnA\"},{\"queryRef\":\"Query1.colA.columnB\"},{\"queryRef\":\"Query1.colA.columnC\"},{\"queryRef\":\"Query1.colA.columnD\"},{\"queryRef\":\"Query1.colB\"},{\"queryRef\":\"Query1.colB.columnA\"},{\"queryRef\":\"Query1.colB.columnB\"},{\"queryRef\":\"Query1.colB.columnC\"},{\"queryRef\":\"Query1.colB.columnD\"},{\"queryRef\":\"Query1.colB.columnX\"},{\"queryRef\":\"Query1.colC.columnA\"},{\"queryRef\":\"Query1.colC.columnA.columnA\"},{\"queryRef\":\"Query1.colC.columnA.columnB\"},{\"queryRef\":\"Query1.colC.columnA.columnC\"},{\"queryRef\":\"Query1.colC.columnA.columnD\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"q\",\"Entity\":\"Query1\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colA\"},\"Name\":\"Query1.colA\",\"NativeReferenceName\":\"colA\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colA.columnA\"},\"Name\":\"Query1.colA.columnA\",\"NativeReferenceName\":\"colA.columnA\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colA.columnB\"},\"Name\":\"Query1.colA.columnB\",\"NativeReferenceName\":\"colA.columnB\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colA.columnC\"},\"Name\":\"Query1.colA.columnC\",\"NativeReferenceName\":\"colA.columnC\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colA.columnD\"},\"Name\":\"Query1.colA.columnD\",\"NativeReferenceName\":\"colA.columnD\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colB\"},\"Name\":\"Query1.colB\",\"NativeReferenceName\":\"colB\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colB.columnA\"},\"Name\":\"Query1.colB.columnA\",\"NativeReferenceName\":\"colB.columnA\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colB.columnB\"},\"Name\":\"Query1.colB.columnB\",\"NativeReferenceName\":\"colB.columnB\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colB.columnC\"},\"Name\":\"Query1.colB.columnC\",\"NativeReferenceName\":\"colB.columnC\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colB.columnD\"},\"Name\":\"Query1.colB.columnD\",\"NativeReferenceName\":\"colB.columnD\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colB.columnX\"},\"Name\":\"Query1.colB.columnX\",\"NativeReferenceName\":\"colB.columnX\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colC.columnA\"},\"Name\":\"Query1.colC.columnA\",\"NativeReferenceName\":\"colC.columnA\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colC.columnA.columnA\"},\"Name\":\"Query1.colC.columnA.columnA\",\"NativeReferenceName\":\"colC.columnA.columnA\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colC.columnA.columnB\"},\"Name\":\"Query1.colC.columnA.columnB\",\"NativeReferenceName\":\"colC.columnA.columnB\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colC.columnA.columnC\"},\"Name\":\"Query1.colC.columnA.columnC\",\"NativeReferenceName\":\"colC.columnA.columnC\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"q\"}},\"Property\":\"colC.columnA.columnD\"},\"Name\":\"Query1.colC.columnA.columnD\",\"NativeReferenceName\":\"colC.columnA.columnD\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 279.69,
+          "width": 1269.93,
+          "x": 9.45,
+          "y": 0.00,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

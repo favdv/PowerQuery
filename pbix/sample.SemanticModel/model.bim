@@ -1,0 +1,600 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.132.1053.0 (24.08)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Query1\",\"Query2\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "Query2",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Function"
+          }
+        ],
+        "expression": [
+          "let ",
+          "doc = ",
+          "  [",
+          "    Documentation.Name =  \"Auto Expand columns\", ",
+          "    Documentation.FunctionName = \"Table.ExpandAllColumns\", ",
+          "    Documentation.Description = \"All columns will be expanded apart from the columns that are excluded from the respective table. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace FunctionName with Query1 when calling the function.\", ",
+          "    Documentation.Examples = {",
+          "          [",
+          "            Description = \"Expand all columns\",",
+          "            Code = \"FunctionName(Source)\",",
+          "            Result = \"All columns are expanded.\"",
+          "          ],",
+          "          [",
+          "            Description = \"Expand all columns with exclusions\",",
+          "            Code = \"FunctionName(Source,{\"\"colA\"\",\"\"colE\"\"})\",",
+          "            Result = \"All columns are expanded apart from columns colA and colE.\"",
+          "          ]",
+          "        }",
+          "    ",
+          "  ],",
+          "fn = (previousStep as table, optional ExcludedCols as nullable list,optional i as nullable number) => let ",
+          " ExcludedCols = if ExcludedCols = null then {} else ExcludedCols,",
+          " i = if i = null then 0 else i,",
+          "",
+          " columnCount = Table.ColumnCount(previousStep),",
+          " columnNames = Table.ColumnNames(previousStep),",
+          " processColumn = if i < columnCount then ",
+          " if Table.RowCount(Table.SelectRows(previousStep,each ",
+          "  Value.Is(Record.Field(_,columnNames{i}),type list)=true or ",
+          "  Value.Is(Record.Field(_,columnNames{i}),type table)=true or ",
+          "  Value.Is(Record.Field(_,columnNames{i}),type record)=true)) = 0 or List.Contains(ExcludedCols,columnNames{i}) = true",
+          " then @fn(previousStep,ExcludedCols,i+1)",
+          " else let",
+          " ",
+          " #\"Expand list\" = Table.ExpandListColumn(",
+          "   Table.ReplaceValue(",
+          "   previousStep,",
+          "   each Record.Field(_,columnNames{i}),",
+          "   each if Value.Is(Record.Field(_,columnNames{i}),type list)=false and ",
+          "    Value.Is(Record.Field(_,columnNames{i}),type table)=false and ",
+          "    Record.Field(_,columnNames{i}) <> null",
+          "   then {Record.Field(_,columnNames{i})} ",
+          "   else Record.Field(_,columnNames{i}) ,Replacer.ReplaceValue,{columnNames{i}}),",
+          "  columnNames{i}), ",
+          "",
+          " #\"Expand record\" = let convert = Table.ReplaceValue(",
+          "   #\"Expand list\",",
+          "   each Record.Field(_,columnNames{i}),",
+          "   each if Value.Is(Record.Field(_,columnNames{i}),type record)=false and ",
+          "               Record.Field(_,columnNames{i}) <> null",
+          "   then [#\"_\" = Record.Field(_,columnNames{i})] ",
+          "   else Record.Field(_,columnNames{i}) ,Replacer.ReplaceValue,{columnNames{i}}) ,",
+          "  expandRecords = let ",
+          "  //oldRecords = Record.FieldNames( Record.Combine(Table.Column(convert,columnNames{i}))),",
+          "  oldRecords = Table.RenameColumns(Table.FromList(",
+          "       Record.FieldNames(Record.Combine(",
+          "         List.RemoveNulls(",
+          "           Table.Column(convert,columnNames{i})",
+          "         ))",
+          "       ), Splitter.SplitByNothing(), null, null, ExtraValues.Error),{{\"Column1\", \"old.name\"}}",
+          "     ),",
+          "  newRecords = Table.AddColumn(oldRecords, \"new.name\", each if [old.name] = \"_\" then columnNames{i} else columnNames{i} &\".\" & [old.name]),",
+          "  expandTable = Table.ExpandRecordColumn( convert, columnNames{i}, newRecords[old.name],newRecords[new.name])",
+          "  in expandTable",
+          "    ",
+          "  in expandRecords",
+          " in @fn(#\"Expand record\",ExcludedCols,i) ",
+          " else previousStep ",
+          " in processColumn",
+          "",
+          " in ",
+          "Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))"
+        ],
+        "kind": "m",
+        "lineageTag": "15da9ce1-8e1a-4aac-9a54-0c6f69a2bb68"
+      }
+    ],
+    "sourceQueryCulture": "en-GB",
+    "tables": [
+      {
+        "name": "Query1",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "colA",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7e5bd486-c92f-4def-84fe-c63171c9c657",
+            "sourceColumn": "colA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colB",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "100cbb3f-fda0-47e7-8e68-98ff6a7d0e0a",
+            "sourceColumn": "colB",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colD",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a6c4c8fa-af1e-458c-bf88-8790c5b033d5",
+            "sourceColumn": "colD",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colF",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2f1062fa-61ac-498a-9b2e-f89758be4435",
+            "sourceColumn": "colF",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colA.columnA",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9bde92fe-8bb0-433c-9810-2e5887c34bb4",
+            "sourceColumn": "colA.columnA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colA.columnB",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e2d3425a-fec5-47ed-8c8e-8b04e0aa70dc",
+            "sourceColumn": "colA.columnB",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colA.columnC",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bf240822-d34c-46bf-9e48-91ca588aea6a",
+            "sourceColumn": "colA.columnC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colA.columnD",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fe76e0b0-77cd-4b96-b37f-4e326a5f356d",
+            "sourceColumn": "colA.columnD",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colB.columnA",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "73a7c1c6-d8cb-4478-8b15-1789b864a8e8",
+            "sourceColumn": "colB.columnA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colB.columnB",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5854658c-b307-4793-ab8f-2b8cb3b8dff2",
+            "sourceColumn": "colB.columnB",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colB.columnC",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1ce9c2d5-f6b6-4308-b0ec-23f7c02f6c10",
+            "sourceColumn": "colB.columnC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colB.columnD",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6cb4ab24-1060-425b-81a6-3fadd100614a",
+            "sourceColumn": "colB.columnD",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colB.columnX",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d5fd243b-9aa2-41f6-bf89-c064528e7aca",
+            "sourceColumn": "colB.columnX",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnA.columnA",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d3b2a495-dae1-463c-9e47-799f096a7a51",
+            "sourceColumn": "colC.columnA.columnA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnA.columnB",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "28daf8a7-0832-4d27-b25c-eb951b761177",
+            "sourceColumn": "colC.columnA.columnB",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnA.columnC",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cfcf9694-b425-4f5a-bf25-08911a3ff9fe",
+            "sourceColumn": "colC.columnA.columnC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnA.columnD",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "40501be2-f140-4609-a395-ab8418d10917",
+            "sourceColumn": "colC.columnA.columnD",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnA",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fb4b72ac-0112-4a28-96ff-d0860a367411",
+            "sourceColumn": "colC.columnA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnB",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8b52a3f3-35e3-42df-ac94-2c9097392144",
+            "sourceColumn": "colC.columnB",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnB.columnA",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3ba111f8-95dd-4bb6-9e2a-1138cd84a77f",
+            "sourceColumn": "colC.columnB.columnA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnB.columnB",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2b4ae573-0811-438a-8d47-770c0a800e40",
+            "sourceColumn": "colC.columnB.columnB",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnB.columnC",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cd99cf2e-0ad3-4083-87e9-414716b38ce0",
+            "sourceColumn": "colC.columnB.columnC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnB.columnD",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d227e3e4-f359-4009-9542-71673296d95b",
+            "sourceColumn": "colC.columnB.columnD",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC.columnC",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "946c1878-bba0-4249-838a-188931c60a4f",
+            "sourceColumn": "colC.columnC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colE.columnA",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "317f0b0f-b64b-452c-9aa9-f7627e93c742",
+            "sourceColumn": "colE.columnA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colE.columnB",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7e160057-c599-43ae-9f1b-31e70e253fd2",
+            "sourceColumn": "colE.columnB",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colE.columnC",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "60df76eb-41fc-4cdf-9731-e2a58e22d6cc",
+            "sourceColumn": "colE.columnC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colF.columnA",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1a8bd4bb-4b9f-4c6b-9d6a-4f678c8f720a",
+            "sourceColumn": "colF.columnA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colF.columnB",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d8fd3a0a-2ed1-4295-876d-853141816cd7",
+            "sourceColumn": "colF.columnB",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "dac94621-8a6e-4a90-90ed-799de828882a",
+        "partitions": [
+          {
+            "name": "Query1",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let #\"Build Source\" = let ",
+                "//Options to include in the Source step",
+                " Text1 = \"Text1\",Text2 = \"Text2\",Text3 = \"Text3\",Text4 = null,",
+                " No1 = 1,No2 = 3,No3 = 5,No4 = null,",
+                " ",
+                " Record = [columnA = Text4,columnB = Text1,columnC = Text2],",
+                " RecordAlt = [columnA = Text4,columnD = Text1,columnX = Text2],",
+                " ",
+                " Table = Table.FromRecords({",
+                " [columnA = No1,columnB = Text1,columnC = No2,columnD = Text4],",
+                " [columnA = No4,columnB = Text3,columnC = Text1,columnD = No1],",
+                " [columnA = No2,columnB = Text1,columnC = No4,columnD = Text1]",
+                " }),",
+                " List = {Text1,Text2,Text3},",
+                " ListOfLists = {List,List},",
+                " ListOfRecords = {Record,Record},",
+                " RecordOfLists = [columnA = List,columnB = List,columnC = List],",
+                " TableOfLists = Table.FromRecords({",
+                " [columnA = List,columnB = List],",
+                " [columnA = List,columnB = List],",
+                " [columnA = List,columnB = List]",
+                " }),",
+                " TableOfRecords = Table.FromRecords({",
+                " [columnA = Record,columnB = Record],",
+                " [columnA = Record,columnB = Record],",
+                " [columnA = Record,columnB = Record]",
+                " }),",
+                " TableOfTables = Table.FromRecords({",
+                " [columnA = Table,columnB = Table],",
+                " [columnA = Table,columnB = Table],",
+                " [columnA = Table,columnB = Table]",
+                " }),",
+                " ",
+                "",
+                "//The source table, which is the starting point",
+                "Source = Table.FromRecords({",
+                " [colA = Text1, colB = List, colC=Record, colD=List, colE=Record, colF=TableOfLists],",
+                " [colA = Record, colB = Table, colC=null, colD=null, colE=Record, colF=List],",
+                " [colA = Table, colB = RecordAlt, colC=TableOfTables, colD=List, colE=null, colF=null], ",
+                " [colA = Table, colB = RecordAlt, colC=TableOfLists, colD=Text1, colE=Record, colF=List], ",
+                " [colA = Text1, colB = List, colC=Record, colD=List, colE=Record, colF=TableOfLists],",
+                " [colA = Record, colB = Table, colC=null, colD=null, colE=Record, colF=List],",
+                " [colA = Table, colB = RecordAlt, colC=TableOfTables, colD=List, colE=null, colF=null], ",
+                " [colA = Table, colB = RecordAlt, colC=TableOfLists, colD=Text1, colE=Record, colF=List], ",
+                " [colA = Text1, colB = List, colC=Record, colD=List, colE=Record, colF=TableOfLists],",
+                " [colA = Record, colB = Table, colC=null, colD=null, colE=Record, colF=List],",
+                " [colA = Table, colB = RecordAlt, colC=TableOfTables, colD=List, colE=null, colF=null], ",
+                " [colA = Table, colB = RecordAlt, colC=TableOfLists, colD=Text1, colE=Record, colF=List], ",
+                " [colA = Text1, colB = List, colC=Record, colD=List, colE=Record, colF=TableOfLists],",
+                " [colA = Record, colB = Table, colC=null, colD=null, colE=Record, colF=List],",
+                " [colA = Table, colB = RecordAlt, colC=TableOfTables, colD=List, colE=null, colF=null], ",
+                " [colA = Table, colB = RecordAlt, colC=TableOfLists, colD=Text1, colE=Record, colF=List], ",
+                " [colA = Text1, colB = List, colC=Record, colD=List, colE=Record, colF=TableOfLists],",
+                " [colA = Record, colB = Table, colC=null, colD=null, colE=Record, colF=List],",
+                " [colA = Table, colB = RecordAlt, colC=TableOfTables, colD=List, colE=null, colF=null], ",
+                " [colA = Table, colB = RecordAlt, colC=TableOfLists, colD=Text1, colE=Record, colF=List] ",
+                " })",
+                " in Source,",
+                " Expand = Query2(#\"Build Source\")",
+                "in",
+                "    Expand"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
