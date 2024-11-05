@@ -1,0 +1,209 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.137.1102.0 (24.10)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"Query1\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-GB",
+    "tables": [
+      {
+        "name": "Query1",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "colA",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7e5bd486-c92f-4def-84fe-c63171c9c657",
+            "sourceColumn": "colA",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colB",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "100cbb3f-fda0-47e7-8e68-98ff6a7d0e0a",
+            "sourceColumn": "colB",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colC",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "db48c424-f55e-48ac-b4d9-d9c9859e2d21",
+            "sourceColumn": "colC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colD",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a6c4c8fa-af1e-458c-bf88-8790c5b033d5",
+            "sourceColumn": "colD",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b4041b6c-0ed0-4abd-b1d4-50aa8bc757a8",
+            "sourceColumn": "colE",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "colF",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2f1062fa-61ac-498a-9b2e-f89758be4435",
+            "sourceColumn": "colF",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "dac94621-8a6e-4a90-90ed-799de828882a",
+        "partitions": [
+          {
+            "name": "Query1",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let #\"Build Source\" = let ",
+                "//Options to include in the Source step",
+                " Text1 = \"Text1\",Text2 = \"Text2\",Text3 = \"Text3\",Text4 = null,",
+                " No1 = 1,No2 = 3,No3 = 5,No4 = null,",
+                " ",
+                " Record = [columnA = Text4,columnB = Text1,columnC = Text2],",
+                " RecordAlt = [columnA = Text4,columnD = Text1,columnX = Text2],",
+                " ",
+                " Table = Table.FromRecords({",
+                " [columnA = No1,columnB = Text1,columnC = No2,columnD = Text4],",
+                " [columnA = No4,columnB = Text3,columnC = Text1,columnD = No1],",
+                " [columnA = No2,columnB = Text1,columnC = No4,columnD = Text1]",
+                " }),",
+                " List = {Text1,Text2,Text3},",
+                " ListOfLists = {List,List},",
+                " ListOfRecords = {Record,Record},",
+                " RecordOfLists = [columnA = List,columnB = List,columnC = List],",
+                " TableOfLists = Table.FromRecords({",
+                " [columnA = List,columnB = List],",
+                " [columnA = List,columnB = List],",
+                " [columnA = List,columnB = List]",
+                " }),",
+                " TableOfRecords = Table.FromRecords({",
+                " [columnA = Record,columnB = Record],",
+                " [columnA = Record,columnB = Record],",
+                " [columnA = Record,columnB = Record]",
+                " }),",
+                " TableOfTables = Table.FromRecords({",
+                " [columnA = Table,columnB = Table],",
+                " [columnA = Table,columnB = Table],",
+                " [columnA = Table,columnB = Table]",
+                " }),",
+                " ",
+                "",
+                "//The source table, which is the starting point",
+                "Source = Table.FromRecords({",
+                " [colA = Text1, colB = List, colC=Record, colD=List, colE=Record, colF=TableOfLists],",
+                " [colA = Record, colB = Table, colC=null, colD=null, colE=Record, colF=List],",
+                " [colA = Table, colB = RecordAlt, colC=TableOfTables, colD=List, colE=null, colF=null], ",
+                " [colA = Table, colB = RecordAlt, colC=TableOfLists, colD=Text1, colE=Record, colF=List], ",
+                " [colA = Text1, colB = List, colC=Record, colD=List, colE=Record, colF=TableOfLists],",
+                " [colA = Record, colB = Table, colC=null, colD=null, colE=Record, colF=List],",
+                " [colA = Table, colB = RecordAlt, colC=TableOfTables, colD=List, colE=null, colF=null], ",
+                " [colA = Table, colB = RecordAlt, colC=TableOfLists, colD=Text1, colE=Record, colF=List], ",
+                " [colA = Text1, colB = List, colC=Record, colD=List, colE=Record, colF=TableOfLists],",
+                " [colA = Record, colB = Table, colC=null, colD=null, colE=Record, colF=List],",
+                " [colA = Table, colB = RecordAlt, colC=TableOfTables, colD=List, colE=null, colF=null], ",
+                " [colA = Table, colB = RecordAlt, colC=TableOfLists, colD=Text1, colE=Record, colF=List], ",
+                " [colA = Text1, colB = List, colC=Record, colD=List, colE=Record, colF=TableOfLists],",
+                " [colA = Record, colB = Table, colC=null, colD=null, colE=Record, colF=List],",
+                " [colA = Table, colB = RecordAlt, colC=TableOfTables, colD=List, colE=null, colF=null], ",
+                " [colA = Table, colB = RecordAlt, colC=TableOfLists, colD=Text1, colE=Record, colF=List], ",
+                " [colA = Text1, colB = List, colC=Record, colD=List, colE=Record, colF=TableOfLists],",
+                " [colA = Record, colB = Table, colC=null, colD=null, colE=Record, colF=List],",
+                " [colA = Table, colB = RecordAlt, colC=TableOfTables, colD=List, colE=null, colF=null], ",
+                " [colA = Table, colB = RecordAlt, colC=TableOfLists, colD=Text1, colE=Record, colF=List] ",
+                " })",
+                " in Source",
+                "in",
+                "    #\"Build Source\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
