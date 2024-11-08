@@ -1,0 +1,3630 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.132.1053.0 (24.08)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"AI Register MASTER VERSION\",\"AI Register Enrichment Data\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Entities": {
+              "AI_register_MASTER_VERSION": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "AI register MASTER VERSION": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "VERSION": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "MASTER VERSION": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "register MASTER VERSION": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "ai register master variety": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "register master variety": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "master variety": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ai register master form": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "ai register master type": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "ai register master kind": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "ai register master sort": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "ai register master style": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.499
+                    }
+                  },
+                  {
+                    "register master form": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "register master type": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.BA__email": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "BA - Email"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "BA - email": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "BA email": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "email": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "ba - correspondence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "ba correspondence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "correspondence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "ba - message": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.468
+                    }
+                  },
+                  {
+                    "ba - communication": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.468
+                    }
+                  },
+                  {
+                    "ba message": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.461
+                    }
+                  },
+                  {
+                    "ba communication": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.461
+                    }
+                  },
+                  {
+                    "message": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "communication": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.BA__role": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "BA - Role"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "BA - role": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "BA role": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "role": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "ba - person": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "ba - hero": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "ba - heroine": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "ba - protagonist": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "ba person": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ba hero": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ba heroine": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ba protagonist": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ba - part": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "ba - character": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.CC__controls_link": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "CC - Controls Link"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "CC - controls link": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "CC - control link": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "CC controls link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "CC control link": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.7566
+                    }
+                  },
+                  {
+                    "link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "controls link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "control link": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.7566
+                    }
+                  },
+                  {
+                    "cc - control connection": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc - control relation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc - control association": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc - control relationship": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc - control linkage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc - control nexus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc control connection": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "cc control relation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "cc control association": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "cc control relationship": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.CC__evidence_link": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "CC - Evidence Link"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "CC - evidence link": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "CC evidence link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "evidence link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "cc - evidence connection": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc - evidence relation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc - evidence association": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc - evidence relationship": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc - evidence linkage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc - evidence nexus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "cc evidence connection": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "cc evidence relation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "cc evidence association": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "cc evidence relationship": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.CO__controls_link": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "CO - Controls Link"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "CO - controls link": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "CO - control link": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.78
+                    }
+                  },
+                  {
+                    "CO controls link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "CO control link": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.7566
+                    }
+                  },
+                  {
+                    "link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "controls link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "control link": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.7566
+                    }
+                  },
+                  {
+                    "co - control connection": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co - control relation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co - control association": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co - control relationship": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co - control linkage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co - control nexus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co control connection": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "co control relation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "co control association": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "co control relationship": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.CO__evidence_link": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "CO - Evidence Link"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "CO - evidence link": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "CO evidence link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "evidence link": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "co - evidence connection": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co - evidence relation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co - evidence association": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co - evidence relationship": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co - evidence linkage": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co - evidence nexus": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.514
+                    }
+                  },
+                  {
+                    "co evidence connection": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "co evidence relation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "co evidence association": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "co evidence relationship": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.EU_act_role": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "EU Act Role"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "EU act role": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "role": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "act role": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "eu act person": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "eu act hero": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "eu act heroine": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "eu act protagonist": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "act person": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "act hero": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "act heroine": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "act protagonist": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "eu act part": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "eu act character": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.LU__date": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "LU - Date"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "LU - date": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "LU date": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "lu - moment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.762
+                    }
+                  },
+                  {
+                    "lu moment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "lu - period": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "lu period": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.LU__email": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "LU - Email"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "LU - email": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "LU email": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "email": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "lu - correspondence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "lu correspondence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "correspondence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "lu - message": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.468
+                    }
+                  },
+                  {
+                    "lu - communication": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.468
+                    }
+                  },
+                  {
+                    "lu message": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.461
+                    }
+                  },
+                  {
+                    "lu communication": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.461
+                    }
+                  },
+                  {
+                    "message": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "communication": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "Contact Email": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.LU__name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "LU - Name"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "LU - name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "LU name": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "LU": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "lu - nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "lu - title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "lu - label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "lu - tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.739
+                    }
+                  },
+                  {
+                    "lu nickname": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "lu title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "lu label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "lu tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "Contact Name": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.TA__email": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "TA - Email"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "TA - email": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "TA email": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "email": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "ta - correspondence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "ta correspondence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.485
+                    }
+                  },
+                  {
+                    "correspondence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.476
+                    }
+                  },
+                  {
+                    "ta - message": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.468
+                    }
+                  },
+                  {
+                    "ta - communication": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.468
+                    }
+                  },
+                  {
+                    "ta message": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.461
+                    }
+                  },
+                  {
+                    "ta communication": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.461
+                    }
+                  },
+                  {
+                    "message": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  },
+                  {
+                    "communication": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.452
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.TA__role": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "TA - Role"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "TA - role": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "TA role": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "role": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "ta - person": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "ta - hero": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "ta - heroine": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "ta - protagonist": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "ta person": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ta hero": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ta heroine": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ta protagonist": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "ta - part": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "ta - character": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.autonomy_level": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "Autonomy Level"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "autonomy level": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "level": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "autonomy quantity": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "autonomy threshold": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "threshold": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "autonomy amount": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "autonomy grade": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "autonomy point": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "autonomy rank": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "autonomy tier": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "grade": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "point": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.core_technology": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "Core Technologies"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "core technology": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "technology": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "core skill": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "core knowledge": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "core expertise": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "core knowhow": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "core equipment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "core machinery": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.5
+                    }
+                  },
+                  {
+                    "skill": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "knowledge": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "expertise": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  },
+                  {
+                    "knowhow": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.491
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.description": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "Description"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "description": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "appearance": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "descriptor": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "explanation": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "specification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "account": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "overview": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "report": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.live_date": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "Live Date"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "live date": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "live moment": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "live period": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.name": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "Name"
+                  }
+                },
+                "NameType": "Name",
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "name": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "title": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "label": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "tag": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.op_co": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "OpCo"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "op co": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "OpCo": {
+                      "State": "Generated",
+                      "Type": "Noun",
+                      "Weight": 0.99
+                    }
+                  },
+                  {
+                    "co": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.risk_category": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "Risk Category"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "risk category": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "category": {
+                      "State": "Generated",
+                      "Weight": 0.97
+                    }
+                  },
+                  {
+                    "risk classification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.75
+                    }
+                  },
+                  {
+                    "classification": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "risk class": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "risk group": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "risk type": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "risk grouping": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "risk kind": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.727
+                    }
+                  },
+                  {
+                    "class": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "type": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "grouping": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.status": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "Status"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "status": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "importance": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "prestige": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "prominence": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.736
+                    }
+                  },
+                  {
+                    "condition": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "class": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "grade": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  },
+                  {
+                    "position": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.714
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.types_of_AI": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "Type(s) of AI"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "type(s) of AI": {
+                      "State": "Generated"
+                    }
+                  }
+                ]
+              },
+              "AI_register_MASTER_VERSION.v3rd_Party_Provider3rd_party_provider": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "AI Register MASTER VERSION",
+                    "ConceptualProperty": "3rd Party Provider"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "3rd party provider": {
+                      "State": "Generated"
+                    }
+                  },
+                  {
+                    "3rd party breadwinner": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "3rd party earner": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "3rd party worker": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "3rd party benefactor": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.508
+                    }
+                  },
+                  {
+                    "3rd party wage-earner": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.492
+                    }
+                  },
+                  {
+                    "3rd party supplier": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
+                    }
+                  },
+                  {
+                    "3rd party contributor": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
+                    }
+                  },
+                  {
+                    "3rd party donor": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
+                    }
+                  },
+                  {
+                    "3rd party bringer": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
+                    }
+                  },
+                  {
+                    "3rd party giver": {
+                      "Source": {
+                        "Agent": "Thesaurus"
+                      },
+                      "State": "Suggested",
+                      "Type": "Noun",
+                      "Weight": 0.482
+                    }
+                  }
+                ]
+              }
+            },
+            "Language": "en-US",
+            "Relationships": {
+              "AI_register_MASTER_VERSION_has_BA__email": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.BA__email"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_BA__emails",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.BA__email": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.BA__email"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_BA__role": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.BA__role"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_BA__roles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.BA__role": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.BA__role"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_CC__controls_link": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.CC__controls_link"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_CC__controls_links",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.CC__controls_link": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.CC__controls_link"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_CC__evidence_link": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.CC__evidence_link"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_CC__evidence_links",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.CC__evidence_link": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.CC__evidence_link"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_CO__controls_link": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.CO__controls_link"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_CO__controls_links",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.CO__controls_link": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.CO__controls_link"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_CO__evidence_link": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.CO__evidence_link"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_CO__evidence_links",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.CO__evidence_link": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.CO__evidence_link"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_EU_act_role": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.EU_act_role"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_EU_act_roles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.EU_act_role": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.EU_act_role"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_LU__date": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.LU__date"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_LU__dates",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.LU__date": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.LU__date"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_LU__email": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.LU__email"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_LU__emails",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.LU__email": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.LU__email"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_LU__name": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.LU__name"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_LU__names",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.LU__name": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.LU__name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_TA__email": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.TA__email"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_TA__emails",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.TA__email": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.TA__email"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_TA__role": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.TA__role"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_TA__roles",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.TA__role": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.TA__role"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_autonomy_level": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.autonomy_level"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_autonomy_levels",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.autonomy_level": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.autonomy_level"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_core_technology": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.core_technology"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_core_technologies",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.core_technology": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.core_technology"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_description": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.description"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_descriptions",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.description": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.description"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_live_date": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.live_date"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_live_dates",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.live_date": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.live_date"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_name": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.name"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_names",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  },
+                  {
+                    "ID": "names_are_names_IDs_of_AI_register_MASTER_VERSIONs",
+                    "Name": {
+                      "Name": {
+                        "Role": "AI_register_MASTER_VERSION.name"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.name": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.name"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_op_co": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.op_co"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_op_co",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.op_co": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.op_co"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_risk_category": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.risk_category"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_risk_categories",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.risk_category": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.risk_category"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_status": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.status"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_statuses",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.status": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.status"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_types_of_AI": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.types_of_AI"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_types_of_AI",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.types_of_AI": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.types_of_AI"
+                    }
+                  }
+                },
+                "State": "Generated"
+              },
+              "AI_register_MASTER_VERSION_has_v3rd_Party_Provider3rd_party_provider": {
+                "Binding": {
+                  "ConceptualEntity": "AI Register MASTER VERSION"
+                },
+                "Phrasings": [
+                  {
+                    "Attribute": {
+                      "Object": {
+                        "Role": "AI_register_MASTER_VERSION.v3rd_Party_Provider3rd_party_provider"
+                      },
+                      "Subject": {
+                        "Role": "AI_register_MASTER_VERSION"
+                      }
+                    },
+                    "ID": "AI_register_MASTER_VERSIONs_have_3rd_party_providers",
+                    "State": "Generated",
+                    "Weight": 0.99
+                  }
+                ],
+                "Roles": {
+                  "AI_register_MASTER_VERSION": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION"
+                    }
+                  },
+                  "AI_register_MASTER_VERSION.v3rd_Party_Provider3rd_party_provider": {
+                    "Target": {
+                      "Entity": "AI_register_MASTER_VERSION.v3rd_Party_Provider3rd_party_provider"
+                    }
+                  }
+                },
+                "State": "Generated"
+              }
+            },
+            "Version": "3.5.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "0b4bde82-41d8-9687-7d5a-e6bce3a3c050",
+        "crossFilteringBehavior": "bothDirections",
+        "fromColumn": "Name",
+        "fromTable": "AI Register Enrichment Data",
+        "toCardinality": "many",
+        "toColumn": "Name",
+        "toTable": "AI Register MASTER VERSION"
+      }
+    ],
+    "sourceQueryCulture": "en-GB",
+    "tables": [
+      {
+        "name": "AI Register MASTER VERSION",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1d04a743-104d-4426-916f-c2a1f8d5edbf",
+            "sourceColumn": "Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Description",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0f787ef2-5838-40b8-b0e1-6f8f33b0b174",
+            "sourceColumn": "Description",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OpCo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "db7c6477-7f50-46c1-a95f-7451f9a58791",
+            "sourceColumn": "OpCo",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BA - Role",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c6605179-c14a-4c59-ae25-308450abe68b",
+            "sourceColumn": "BA - Role",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BA - Email",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2d102837-bcca-40b4-ab11-17cc1127a730",
+            "sourceColumn": "BA - Email",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TA - Role",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8df2ba49-8b46-4811-8741-762ec84e6906",
+            "sourceColumn": "TA - Role",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TA - Email",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "64a5e250-c05d-4767-bb99-098a2cce96bb",
+            "sourceColumn": "TA - Email",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EU Act Role",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "85939d69-44a8-429b-86f4-8c5401ff1a66",
+            "sourceColumn": "EU Act Role",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "3rd Party Provider",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "95c2539c-7ce6-493a-86dd-9b49d180b226",
+            "sourceColumn": "3rd Party Provider",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Type(s) of AI",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7a530d75-53e9-40ad-8f38-ca49e5f901c8",
+            "sourceColumn": "Type(s) of AI",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Autonomy Level",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "43e8fde1-5e65-4576-91b4-8fdc7f8e2202",
+            "sourceColumn": "Autonomy Level",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Core Technologies",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ec829ec8-620a-47f8-b851-b4bacf65e89e",
+            "sourceColumn": "Core Technologies",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Status",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8754bb0c-9a2d-471d-b24e-550a5b3832cb",
+            "sourceColumn": "Status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Live Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fb2e4827-d765-4653-b152-a7523e3ee9a7",
+            "sourceColumn": "Live Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CC - Controls Link",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c0173539-a80f-495c-8d63-9ed0f385dcbb",
+            "sourceColumn": "CC - Controls Link",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CC - Evidence Link",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3b2e7d23-2ded-4fed-8913-473dc3ba3812",
+            "sourceColumn": "CC - Evidence Link",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CO - Controls Link",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4421b81a-fd9d-489a-9516-ae6f20c80307",
+            "sourceColumn": "CO - Controls Link",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CO - Evidence Link",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5d516469-a798-4385-aa9f-d506e269d005",
+            "sourceColumn": "CO - Evidence Link",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LU - Email",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "34119a0f-c895-42de-b71c-5ad4549b2577",
+            "sourceColumn": "LU - Email",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LU - Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1058e4b6-d052-4539-9f2f-5320e3a24fc6",
+            "sourceColumn": "LU - Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LU - Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c3b013e9-7002-474c-baf1-cc47499e6464",
+            "sourceColumn": "LU - Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Risk Category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2edda7e8-2ae1-4005-bd2b-9e35075a7382",
+            "sourceColumn": "Risk Category",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "d4307f6d-5b1d-4a2d-aa93-5c33dbeef43a",
+        "partitions": [
+          {
+            "name": "AI Register MASTER VERSION",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "",
+                "     GetSource = let ",
+                "        Data = \"Table1\",",
+                "        Type = \"Table\", //if an Excel table should be referenced, set to Table, ortherwise Sheet",
+                "        File = Table.SelectRows(SharePoint.Files(",
+                "                        \"https://iairgroup.sharepoint.com/sites/IAG.ai-IAG.aiOversightGroup\", ",
+                "                        [ApiVersion = 15]), ",
+                "                        each ([Name] = \"AI Register MASTER VERSION.xlsx\")){0}[Content],",
+                "",
+                "        Source =  Excel.Workbook(",
+                "            File meta [ IsParameterQuery=true, ",
+                "                        BinaryIdentifier=File, ",
+                "                        Type=\"Binary\", ",
+                "                        IsParameterQueryRequired=true], ",
+                "                        null, ",
+                "                        true",
+                "                ){[Item=Data,Kind=Type]}[Data]",
+                "    in Source",
+                "in",
+                "    GetSource"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "AI Register Enrichment Data",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8c5b3df0-6264-418e-ab69-521c14c6e704",
+            "sourceColumn": "Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Link",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "fe08889a-29d6-46fd-b9f9-79ee806149f3",
+            "sourceColumn": "Link",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "e7a8ebc5-6ffa-437c-93ce-033ca19be31d",
+        "partitions": [
+          {
+            "name": "AI Register Enrichment Data",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "",
+                "     GetSource = let ",
+                "        Data = \"AI Register Enrichment\",",
+                "        Type = \"Sheet\", //if an Excel table should be referenced, set to Table, ortherwise Sheet",
+                "        File = Table.SelectRows(SharePoint.Files(",
+                "                        \"https://iairgroup.sharepoint.com/sites/MarketPlace/AI\", ",
+                "                        [ApiVersion = 15]), ",
+                "                        each ([Name] = \"AI Register Enrichment.xlsx\")){0}[Content],",
+                "",
+                "        Source =  Excel.Workbook(",
+                "            File meta [ IsParameterQuery=true, ",
+                "                        BinaryIdentifier=File, ",
+                "                        Type=\"Binary\", ",
+                "                        IsParameterQueryRequired=true], ",
+                "                        null, ",
+                "                        true",
+                "                ){[Item=Data,Kind=Type]}[Data]",
+                "    in Source,",
+                "    #\"Filtered Rows\" = Table.SelectRows(GetSource, each [Column1] <> 0),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(#\"Filtered Rows\", [PromoteAllScalars=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Name\", type text}, {\"Link\", type any}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
