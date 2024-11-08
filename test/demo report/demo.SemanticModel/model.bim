@@ -3512,21 +3512,6 @@
             "lineageTag": "2edda7e8-2ae1-4005-bd2b-9e35075a7382",
             "sourceColumn": "Risk Category",
             "summarizeBy": "none"
-          },
-          {
-            "name": "Sample DAX",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "expression": "'AI Register MASTER VERSION'[LU - Name]&\" (\"&'AI Register MASTER VERSION'[LU - Email]&\")\" ",
-            "isDataTypeInferred": true,
-            "lineageTag": "9b1d892e-0eae-4399-b97f-e8128977c838",
-            "summarizeBy": "none",
-            "type": "calculated"
           }
         ],
         "lineageTag": "d4307f6d-5b1d-4a2d-aa93-5c33dbeef43a",
