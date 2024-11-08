@@ -37,7 +37,8 @@
             "variables": [
               {
                 "name": "sampleVar",
-                "type": "string"
+                "type": "string",
+                "value": "Default value"
               }
             ]
           }
