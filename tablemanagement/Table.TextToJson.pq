@@ -21,6 +21,12 @@ doc = [
 
 fn = (previousStep as table, optional columns as nullable list) as table =>
     let
+        // Get the list of columns to transform
+        ColumnsToTransform = if columns = null or List.IsEmpty(columns) then
+                                Table.ColumnNames(previousStep)
+                             else
+                                columns,
+        
         // Function to parse a single field from JSON string to nested structure if valid
         ParseField = (value as any) as any =>
             if value is text then
@@ -30,12 +36,6 @@ fn = (previousStep as table, optional columns as nullable list) as table =>
                     value
             else
                 value,
-        
-        // Get the list of columns to transform
-        ColumnsToTransform = if columns = null or List.IsEmpty(columns) then
-                                Table.ColumnNames(previousStep)
-                             else
-                                columns,
         
         // Function to parse a single column from JSON string to nested structure
         ParseColumn = (tbl as table, col as text) =>
