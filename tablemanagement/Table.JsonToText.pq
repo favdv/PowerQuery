@@ -19,32 +19,30 @@ doc = [
     
   ],
 
-fn = (previousStep as table, optional columns as nullable list) as table =>
-    let
-        // Function to check if a value is a nested record or list
-        IsNested = (value as any) as logical =>
-            if value is record or value is list  or value is table then true else false,
+fn = (previousStep as table, optional columns as nullable list) as table => let
+   // Get the list of columns to transform
+   ColumnsToTransform = if columns = null or List.IsEmpty(columns) 
+                        then Table.ColumnNames(previousStep)
+                        else columns,
+   
+   // Function to check if a value is a nested record, table or list
+   IsNested = (value as any) as logical =>
+      if value is record or value is list or value is table 
+      then true 
+      else false,
         
-        // Get the list of columns to transform
-        ColumnsToTransform = if columns = null or List.IsEmpty(columns) then
-                                Table.ColumnNames(previousStep)
-                             else
-                                columns,
+   // Function to convert a single field from JSON record to JSON string if it is nested
+   ConvertField = (value as any) as any =>
+      if IsNested(value) 
+      then Text.FromBinary(Json.FromValue(value), TextEncoding.Utf8)
+      else value,
         
-        // Function to convert a single field from JSON record to JSON string if it is nested
-        ConvertField = (value as any) as any =>
-            if IsNested(value) then
-                Text.FromBinary(Json.FromValue(value), TextEncoding.Utf8)
-            else
-                value,
+   // Function to convert a single column from JSON record to JSON string
+   ConvertColumn = (tbl as table, col as text) =>
+      Table.TransformColumns(tbl, {col, each ConvertField(_), type text}),
         
-        // Function to convert a single column from JSON record to JSON string
-        ConvertColumn = (tbl as table, col as text) =>
-            Table.TransformColumns(tbl, {col, each ConvertField(_), type text}),
-        
-        // Iterate over the list of columns and apply the conversion function
-        Result = List.Accumulate(ColumnsToTransform, previousStep, (state, current) => ConvertColumn(state, current))
-    in
-        Result
+   // Iterate over the list of columns and apply the conversion function
+      Result = List.Accumulate(ColumnsToTransform, previousStep, (state, current) => ConvertColumn(state, current))
+   in Result
  in 
 Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
