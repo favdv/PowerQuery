@@ -1,9 +1,9 @@
 let 
 doc = [
-    Documentation.Name =  "Change Nested Columns to JSON Strings", 
-    Documentation.FunctionName = "Table.JsonToText",
+    Documentation.Name =  "Change Nested Columns to either HTML, XML or JSON Strings", 
+    Documentation.FunctionName = "Table.NestedDataToText",
     Documentation.Description = 
-    "This function converts deep nested columns into strings, and at this stage it converts to either JSON, XML or (X)HTML. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace FunctionName with Query1 when calling the function.", 
+    "This function converts deep nested columns into strings, and at this stage it converts to either JSON, XML or (X)HTML - JSON is the default if no value for ExportType is provided and all columns are converted if no value for columns is provided. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace FunctionName with Query1 when calling the function.", 
     Documentation.Examples = {
           [
             Description = "Convert all columns to JSON",
