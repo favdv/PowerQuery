@@ -31,25 +31,26 @@ doc = [
 
 fn = (previousStep as table, optional ExportType as nullable text, optional columns as nullable list) as table =>
 let
-    //Set up the different elements to use depending on ExportType
-    ListParent = if Text.Lower( ExportType) = "html" or Text.Lower( ExportType) = "xhtml" then "div class=""list array""" else "list class=""array""",
-    ListChild = if Text.Lower( ExportType) = "html" or Text.Lower( ExportType) = "xhtml" then "div class=""item value""" else "item class=""value""",
-    RecordParent = if Text.Lower( ExportType) = "html" or Text.Lower( ExportType) = "xhtml" then "div class=""record object""" else "record class=""object""",
-    RecordChild = if Text.Lower( ExportType) = "html" or Text.Lower( ExportType) = "xhtml" then "div class=""field key value""" else "field class=""key value""",
-    TableArray = if Text.Lower( ExportType) = "html" or Text.Lower( ExportType) = "xhtml" then "div class=""table array""" else "table class=""array""",
-    TableList = if Text.Lower( ExportType) = "html" or Text.Lower( ExportType) = "xhtml" then "div class=""row object""" else "row class=""object""",
-    TableKey = if Text.Lower( ExportType) = "html" or Text.Lower( ExportType) = "xhtml" then "div class=""cell key value""" else "cell class=""key value""",
+    // Set up the different elements to use depending on ExportType
+    ListParent = if Text.Lower(ExportType) = "html" or Text.Lower(ExportType) = "xhtml" then "div class=""list array""" else "list class=""array""",
+    ListChild = if Text.Lower(ExportType) = "html" or Text.Lower(ExportType) = "xhtml" then "div class=""item value""" else "item class=""value""",
+    RecordParent = if Text.Lower(ExportType) = "html" or Text.Lower(ExportType) = "xhtml" then "div class=""record object""" else "record class=""object""",
+    RecordChild = if Text.Lower(ExportType) = "html" or Text.Lower(ExportType) = "xhtml" then "div class=""field key value""" else "field class=""key value""",
+    TableArray = if Text.Lower(ExportType) = "html" or Text.Lower(ExportType) = "xhtml" then "div class=""table array""" else "table class=""array""",
+    TableList = if Text.Lower(ExportType) = "html" or Text.Lower(ExportType) = "xhtml" then "div class=""row object""" else "row class=""object""",
+    TableKey = if Text.Lower(ExportType) = "html" or Text.Lower(ExportType) = "xhtml" then "div class=""cell key value""" else "cell class=""key value""",
+    
+    //AttributeNames
+    TypeAttr = "data-type",
+    KeyAttr = "data-key",
+    NullValue = "null",
     
     // Get the list of columns to transform
-    ColumnsToTransform = if columns = null or List.IsEmpty(columns) 
-                         then Table.ColumnNames(previousStep)
-                         else columns,
+    ColumnsToTransform = if columns = null or List.IsEmpty(columns) then Table.ColumnNames(previousStep) else columns,
     
     // Function to check if a value is a nested record, table or list
     IsNested = (value as any) as logical =>
-        if value is record or value is list or value is table 
-        then true 
-        else false,
+        if value is record or value is list or value is table then true else false,
     
     // Helper function to convert types to strings for XML
     TypeToString = (t as type) as text =>
@@ -69,32 +70,30 @@ let
     
     // Function to convert a single field to JSON string if it is nested
     ConvertFieldToJSON = (value as any) as any =>
-        if IsNested(value) 
-        then Text.FromBinary(Json.FromValue(value), TextEncoding.Utf8)
-        else value,
+        if IsNested(value) then Text.FromBinary(Json.FromValue(value), TextEncoding.Utf8) else value,
     
     // Function to convert a single field to XML-like format if it is nested
     ConvertFieldToXML = (value as any, ConvertField as function, ConvertRecord as function) as any =>
         if value is list then
-            "<"& ListParent & ">" & Text.Combine(List.Transform(List.Zip({List.Positions(value), value}), each "<"&ListChild&" data-index=""" & Text.From(Number.From(_{0}) + 1) & """ data-type=""" & TypeToString(Value.Type(_{1})) & """>" & ConvertField(_{1}, ConvertField, ConvertRecord) & "</"& Text.BeforeDelimiter(ListChild," ")&">"), "") & "</"& Text.BeforeDelimiter(ListParent," ")&">"
+            "<" & ListParent & ">" & Text.Combine(List.Transform(List.Zip({List.Positions(value), value}), each "<" & ListChild & " " &TypeAttr& "=""" & TypeToString(Value.Type(_{1})) & """>" & ConvertField(_{1}, ConvertField, ConvertRecord) & "</" & Text.BeforeDelimiter(ListChild, " ") & ">"), "") & "</" & Text.BeforeDelimiter(ListParent, " ") & ">"
         else if value is record then
-            "<"& RecordParent & ">" & Text.Combine(List.Transform(Record.FieldNames(value), each "<"&RecordChild&" data-key=""" & _ & """ data-type=""" & TypeToString(Value.Type(Record.Field(value, _))) & """>" & (if Record.Field(value, _) <> null then ConvertField(Record.Field(value, _), ConvertField, ConvertRecord) else "null") & "</"& Text.BeforeDelimiter(RecordChild," ")&">"), "") & "</"& Text.BeforeDelimiter(RecordParent," ")&">"
+            "<" & RecordParent & ">" & Text.Combine(List.Transform(Record.FieldNames(value), each "<" & RecordChild & " " & KeyAttr & "=""" & _ & """ " &TypeAttr& "=""" & TypeToString(Value.Type(Record.Field(value, _))) & """>" & (if Record.Field(value, _) <> null then ConvertField(Record.Field(value, _), ConvertField, ConvertRecord) else NullValue) & "</" & Text.BeforeDelimiter(RecordChild, " ") & ">"), "") & "</" & Text.BeforeDelimiter(RecordParent, " ") & ">"
         else if value is table then
             let
                 TableRecords = Table.ToRecords(value),
                 ConvertedRecords = List.Transform(TableRecords, each ConvertRecord(_, ConvertField, ConvertRecord))
             in
-                "<"&TableArray&">" & Text.Combine(List.Transform(List.Zip({List.Positions(ConvertedRecords), ConvertedRecords}), each  _{1} ), "") & "</"& Text.BeforeDelimiter(TableArray," ")&">" //data-index=""" & Text.From(Number.From(_{0}) + 1) & """
+                "<" & TableArray & ">" & Text.Combine(List.Transform(List.Zip({List.Positions(ConvertedRecords), ConvertedRecords}), each _{1}), "") & "</" & Text.BeforeDelimiter(TableArray, " ") & ">"
         else
             Text.From(value),
     
     // Function to convert a single record to XML-like format
     ConvertRecordToXML = (rec as record, ConvertField as function, ConvertRecord as function) as text =>
-        "<"& TableList & ">" & Text.Combine(List.Transform(Record.FieldNames(rec), each "<"& TableKey & " data-key=""" & _ & """ data-type=""" & TypeToString(Value.Type(Record.Field(rec, _))) & """>" & (if Record.Field(rec, _) <> null then ConvertField(Record.Field(rec, _), ConvertField, ConvertRecord) else "null") & "</"& Text.BeforeDelimiter(TableKey," ")&">"), "") & "</"& Text.BeforeDelimiter(TableList," ")&">",
-    
+        "<" & TableList & ">" & Text.Combine(List.Transform(Record.FieldNames(rec), each "<" & TableKey & " "&KeyAttr&"=""" & _ & """ " &TypeAttr& "=""" & TypeToString(Value.Type(Record.Field(rec, _))) & """>" & (if Record.Field(rec, _) <> null then ConvertField(Record.Field(rec, _), ConvertField, ConvertRecord) else NullValue) & "</" & Text.BeforeDelimiter(TableKey, " ") & ">"), "") & "</" & Text.BeforeDelimiter(TableList, " ") & ">",
+
     // Function to convert a single column based on ExportType
     ConvertColumn = (tbl as table, col as text, ExportType as text) =>
-        if Text.Lower( ExportType) = "html" or Text.Lower( ExportType) = "xhtml" or Text.Lower( ExportType) = "xml" then
+        if Text.Lower(ExportType) = "html" or Text.Lower(ExportType) = "xhtml" or Text.Lower(ExportType) = "xml" then
             Table.TransformColumns(tbl, {col, each ConvertFieldToXML(_, ConvertFieldToXML, ConvertRecordToXML), type text})
         else
             Table.TransformColumns(tbl, {col, each ConvertFieldToJSON(_), type text}),
