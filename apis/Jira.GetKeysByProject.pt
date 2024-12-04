@@ -18,27 +18,41 @@ doc =
           ]
 	}
   ],
-fn = (SourceTable as table, Domains as text, Projects as text, optional NewKeyColumnName as nullable text)=> 
-  Table.ExpandRecordColumn(
-    Table.ExpandListColumn(
-      Table.ExpandRecordColumn(
-	      Table.AddColumn(SourceTable, if NewKeyColumnName = null then "keys" else NewKeyColumnName, each 
-          if Record.Field(_,Domains) = "<domain>" 
-          then Json.Document(Web.Contents(
-            "<domain>",
-            [RelativePath = "rest/api/3/search/",
-             Query = [
-               jql="project="&Record.Field(_,Projects),
-               fields="key",
-               maxResults = "10000" 
-             ]
-            ]))
-          else null
-        ), 
-	      NewKeyColumnName, {"issues"}
-	    ), "issues"
-	  ), 
-    "issues",{"key"}, {NewKeyColumnName}
-	)
+fn = (previousStep as table, Domains as text, Projects as text, optional NewKeyColumnName as nullable text)=>
+let 
+GetKeys = (Domain as text, project as text) =>
+        let
+            BaseUrl = 
+            if Domain = "<domain>" then "<domain>" else "<domain>",
+            FetchPage = (startAt as number) =>
+                Json.Document(Web.Contents(BaseUrl, [
+                    RelativePath = "/rest/api/3/search/",
+                    Query = [
+                        jql = "project="&project,
+                        fields = "key",
+                        maxResults = "100",
+                        startAt = Text.From(startAt)
+                    ]
+                ])),
+            GetAllPages = List.Generate(
+                () => [Page = FetchPage(0), StartAt = 0],
+                each List.Count([Page][issues]) > 0,
+                each [Page = FetchPage([StartAt] + 100), StartAt = [StartAt] + 100],
+                each [Page][issues]
+            ),
+            AllPages = List.Combine(GetAllPages)
+        in
+            Table.FromList(AllPages, Splitter.SplitByNothing(), {"Column1"}),
+
+NewKeyColumnName = if NewKeyColumnName = null then "keys" else NewKeyColumnName in 
+  let GetKeysFromApi = 
+        Table.ExpandRecordColumn(
+            Table.ExpandTableColumn(
+                Table.AddColumn(previousStep, NewKeyColumnName, each
+                    GetKeys(Text.From(Record.Field(_, Domains)), Text.From(Record.Field(_, Projects)))
+                    
+                ), NewKeyColumnName, {"Column1"}), "Column1", {"key"}, {NewKeyColumnName})
+    in GetKeysFromApi
+
  in 
 Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
