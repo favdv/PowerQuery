@@ -1,13 +1,14 @@
-let 
+let
+    Source = let 
     doc = [
         Documentation.Name = "Column Conversion", 
         Documentation.FunctionName = "Table.ConvertColumns",
-        Documentation.Description = "This function loops through all rows and columns and tries to determine the best type for the column. Unlike the default function, no column names need to be hardcoded. For performance reasons, you can change the baseline (number of records the assessment is made on). If set to a lower number, it becomes faster, but potentially less accurate and vice versa.", 
+        Documentation.Description = "This function loops through all rows and columns and tries to determine the best type for the column. Unlike the default function, no column names need to be hardcoded.", 
         Documentation.Examples = {
             [
-                Description = "Convert based on 500 records",
-                Code = "Table.ConvertColumns(Source,500)",
-                Result = "Converts the columns in the Source table based on 500 records"
+                Description = "Convert based on 2000 records",
+                Code = "Table.ConvertColumns(Source,2000)",
+                Result = "Converts the columns in the Source table based on 2000 records"
             ],
             [
                 Description = "Convert based on 1000 records (default)",
@@ -41,7 +42,7 @@ let
             in determineType
     in changeType,
     columnTypes = List.Transform(Table.ColumnNames(sampledTable), each {_, DetermineColumnType(Table.Column(sampledTable, _))}),
-    TransformColumnTypes = Table.TransformColumnTypes(sampledTable, columnTypes)
+    TransformColumnTypes = Table.TransformColumnTypes(previousStep, columnTypes)
 in
     TransformColumnTypes
 
@@ -51,3 +52,5 @@ in
 
 in 
     Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
+in
+    Source
