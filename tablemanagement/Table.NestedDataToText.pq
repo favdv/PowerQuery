@@ -17,12 +17,12 @@ doc = [
           ],
           [
             Description = "Converting selected columns to HTML",
-            Code = "FunctionName(Source,"HTML",{""col1"",""col2""})",
+            Code = "FunctionName(Source,""HTML"",{""col1"",""col2""})",
             Result = "All nested tables, records and lists for the specified columns (her col1 and col2) are converted to strings with a (X)HTML representation. All fields that are not lists, records or tables are ignored. Either HTML or XHTL can be used to dormat it to HTML"
           ],
           [
             Description = "Converting all columns to XML",
-            Code = "FunctionName(Source,"XML")",
+            Code = "FunctionName(Source,""XML"")",
             Result = "All nested tables, records and lists in the whole table are converted to strings with a XML representation. All fields that are not lists, records or tables are ignored."
           ]  
         }
