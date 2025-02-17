@@ -1,4 +1,17 @@
-()=>
+let 
+    doc = [
+        Documentation.Name = "Record.SharedFunctions", 
+        Documentation.FunctionName = "Record.SharedFunctions",
+        Documentation.Description = "A record of global functions that can be easily incorporated for use with Expression.Evaluate", 
+        Documentation.Examples = {
+            [
+                Description = "Get record of functions",
+                Code = "FunctionName()",
+                Result = "Creates a record of functions, referenced in the list below"
+            ]
+        }
+    ],
+    fn = ()=>
 let 
 Shared =[
             Binary.ToText=Binary.ToText,
@@ -362,3 +375,5 @@ Shared =[
             ]
 in
     Shared
+    in 
+    Value.ReplaceType(fn, Value.ReplaceMetadata(Value.Type(fn), doc))
