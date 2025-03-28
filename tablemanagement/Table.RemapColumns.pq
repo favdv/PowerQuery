@@ -15,16 +15,26 @@ let
                 Result = "The column names that can be renamed are renamed (e.g. a column with the name ID is renamed to Unique ID in this example and similarly Name is renamed to New Name if the column exists) and all columns that are not identified in the mapping table retain their current name."
             ],
             [
-                Description = "Renaming the columns from a 'Source' Table from the names in a 'Department' column to the names in a 'Central' column using a mapping table in a query, called 'Lookup'.",
-                Code = "FunctionName(Source,Lookup,""Department"",""Central"","" (disallowed)"")",
-                Result = "The column names that can be renamed are renamed and all columns that are not identified in the mapping table retain their current name. Also replaces the default '(Reserved)' string with '(disallowed)'"
+                Description = "Renaming the columns from a 'Source' Table from the names in a 'Department' column to the names in a 'Central' column using a mapping table in a query, called 'Lookup'. Change the default suffix for reserved words, and add 'Code' to the reserved words list",
+                Code = "FunctionName(Source,Lookup,""Department"",""Central"","" (disallowed)"",{""Code""})",
+                Result = "The column names that can be renamed are renamed and all columns that are not identified in the mapping table retain their current name. Also replaces the default '(Reserved)' string with '(disallowed)' and an additional reserved word 'COde' is added to support any business rules."
+            ],
+            [
+                Description = "Renaming the columns from a 'Source' Table from the names in a 'Department' column to the names in a 'Central' column using a mapping table in a query, called 'Lookup'. Change the default suffix for reserved words, and add 'Code' to the reserved words list",
+                Code = "FunctionName(Source,Lookup,""Department"",""Central"",null,{""Code""})",
+                Result = "The column names that can be renamed are renamed and all columns that are not identified in the mapping table retain their current name. Also adds an additional reserved word 'COde' is added to support any business rules, while the reserved word is defaulted."
             ]
         }
     ],
-    fn = (previousStep as table, mappingTable as table, columnWithCurrentNames as text, columnWithNewNames as text, optional ReservedText as text) =>
+    fn = (previousStep as table, mappingTable as table, columnWithCurrentNames as text, columnWithNewNames as text, optional ReservedText as text, optional ReservedWords as list) =>
 let
     //ReservedString
     ReservedText = if ReservedText = null or ReservedText = "" then " (Reserved)" else ReservedText,
+        // Default ReservedWordsList logic
+    ReservedWords = if ReservedWords = null 
+                    then {"SELECT", "TABLE", "WHERE", "FROM", "JOIN"} 
+                    else {"SELECT", "TABLE", "WHERE", "FROM", "JOIN"} & ReservedWords,
+
     // Retrieve column names from the previous table
     PreviousColumnNames = List.Transform(Table.ColumnNames(previousStep), each Text.Lower(_)), // Case-insensitive comparison
 
@@ -57,11 +67,10 @@ let
     ),
 
     // Reserved words to avoid (example list)
-    ReservedWords = {"SELECT", "TABLE", "WHERE", "FROM", "JOIN"},
     UniqueNewNamesWithoutReserved = List.Transform(UniqueNewNames, each 
-        if List.Contains(ReservedWords, Text.Upper(_)) then _ & ReservedText else _
+        if List.Contains(List.Transform(ReservedWords, Text.Lower), Text.Lower(_)) then _ & ReservedText else _
     ),
-
+    
     // Map current and new names, filtering out null, empty, or whitespace-only strings
     ValidPairs = List.Select(
         List.Zip({CurrentNames, UniqueNewNamesWithoutReserved}),
