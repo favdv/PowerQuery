@@ -4,7 +4,7 @@ doc =
   [
     Documentation.Name =  "Get Jira ChangeLog By Key", 
     Documentation.FunctionName = "Jira.GetChangeLogByKey",
-    Documentation.Description = "Get all changes made to record for a specific key. The key column must contain a single key.", 
+    Documentation.Description = "Get all changes made to record for a specific key. The key column must contain a single key. Ensure you modify your domain(s) to suit your specific requirements. ", 
     Documentation.Examples = {
           [
             Description = "Get Comments",
