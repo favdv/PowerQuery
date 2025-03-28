@@ -2,7 +2,7 @@ let
 doc = [
     Documentation.Name =  "Retrieve functions from Gitub", 
     Documentation.FunctionName = "Github.RetrieveFiles",
-    Documentation.Description = "This function retrieves the files from a specified github repo and either shows the data or converts them to functions.", 
+    Documentation.Description = "This function retrieves the files from a specified github repo and either shows the data or converts them to functions. Ensure you modify the repo, branch, etc. ", 
     Documentation.Examples = {
           [
             Description = "Retieve github data",
@@ -15,7 +15,7 @@ doc = [
   fn = ()=>
     let 
     
-    repo ="https://api.github.com/repos/favdv/powerbi-powerquery-toolkit",
+    repo ="<your repo>",
     mainBranch = "main",
     extensions = {".pq"},  
     
