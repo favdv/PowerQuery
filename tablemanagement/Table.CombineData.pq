@@ -3,7 +3,7 @@ doc = [
     Documentation.Name =  "Combine Data", 
     Documentation.FunctionName = "Table.CombineData",
     Documentation.Description = 
-    "This function batches data in a number of sets identified in the groupCount based on the grouped information. The function was initially designed for two use cases: Deduplication of key data, and batching infomation to manage API requests that might be throttled. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace FunctionName with Query1 when calling the function.", 
+    "This function batches data in a number of sets identified in the groupCount based on the grouped information. The function was initially designed for two use cases: Deduplication of key data, and batching infomation to manage API requests that might be throttled.", 
     Documentation.Examples = {
           [
             Description = "Combining all data on a single line based on the group informaton. (i.e. deduplicate the grouped data)",
