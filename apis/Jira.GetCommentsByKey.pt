@@ -4,7 +4,7 @@ doc =
   [
     Documentation.Name =  "Get Jira Comments By Key", 
     Documentation.FunctionName = "Jira.GetCommentsByKey",
-    Documentation.Description = "Get all comments for a specific key. the renderedBody provides HTML, while body uses the ADF format. the key column must contain a single key.", 
+    Documentation.Description = "Get all comments for a specific key. the renderedBody provides HTML, while body uses the ADF format. the key column must contain a single key.  Ensure you modify your domain(s) to suit your specific requirements. ", 
     Documentation.Examples = {
           [
             Description = "Get Comments",
