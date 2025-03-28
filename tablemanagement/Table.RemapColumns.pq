@@ -13,11 +13,18 @@ let
                 Description = "Renaming the columns from a 'Source' Table from the names in a 'Department' column to the names in a 'Central' column using a mapping table inline in the function.",
                 Code = "FunctionName(Source,Table.FromRecords({[Department=""ID"",Central=""Unique ID""],[Department=""Name"",Central=""New Name""]}),""Department"",""Central"")",
                 Result = "The column names that can be renamed are renamed (e.g. a column with the name ID is renamed to Unique ID in this example and similarly Name is renamed to New Name if the column exists) and all columns that are not identified in the mapping table retain their current name."
+            ],
+            [
+                Description = "Renaming the columns from a 'Source' Table from the names in a 'Department' column to the names in a 'Central' column using a mapping table in a query, called 'Lookup'.",
+                Code = "FunctionName(Source,Lookup,""Department"",""Central"","" (disallowed"")",
+                Result = "The column names that can be renamed are renamed and all columns that are not identified in the mapping table retain their current name. Also replaces the default '(Reserved)' string with '(disallowed')"
             ]
         }
     ],
-    fn = (previousStep as table, mappingTable as table, columnWithCurrentNames as text, columnWithNewNames as text) =>
+    fn = (previousStep as table, mappingTable as table, columnWithCurrentNames as text, columnWithNewNames as text, optional ReservedText as text) =>
 let
+    //ReservedString
+    ReservedText = if ReservedText = null or ReservedText = "" then " (Reserved)" else ReservedText
     // Retrieve column names from the previous table
     PreviousColumnNames = List.Transform(Table.ColumnNames(previousStep), each Text.Lower(_)), // Case-insensitive comparison
 
@@ -52,7 +59,7 @@ let
     // Reserved words to avoid (example list)
     ReservedWords = {"SELECT", "TABLE", "WHERE", "FROM", "JOIN"},
     UniqueNewNamesWithoutReserved = List.Transform(UniqueNewNames, each 
-        if List.Contains(ReservedWords, Text.Upper(_)) then _ & " (Reserved)" else _
+        if List.Contains(ReservedWords, Text.Upper(_)) then _ & ReservedText else _
     ),
 
     // Map current and new names, filtering out null, empty, or whitespace-only strings
