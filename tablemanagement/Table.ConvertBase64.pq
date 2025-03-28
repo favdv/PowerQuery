@@ -3,7 +3,7 @@ doc =
   [
     Documentation.Name =  "ConvertBase64", 
     Documentation.FunctionName =  "Table.ConvertBase64", 
-    Documentation.Description = "Converts base64 strings to text. Error handling includes invalid base64 strings and handling common binary file types. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace FunctionName with Query1 when calling the function.", 
+    Documentation.Description = "Converts base64 strings to text. Error handling includes invalid base64 strings and handling common binary file types.", 
     Documentation.Examples = {
           [
             Description = "Replace base64 column values with converted values",
