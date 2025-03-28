@@ -4,7 +4,7 @@ doc =
   [
     Documentation.Name =  "Get summarised Sharepoint metrics", 
     Documentation.FunctionName = "Sharepoint.Metrics.Summary",
-    Documentation.Description = "Retrieves the summarised analytics for every page (total viewers and views in the last 7 days and total viewers and views to date), ignoring any omittes subsites. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace FunctionName with Query1 when calling the function.", 
+    Documentation.Description = "Retrieves the summarised analytics for every page (total viewers and views in the last 7 days and total viewers and views to date), ignoring any omittes subsites. Ensure you modify the Entra Credentials and domain to suit your specific requirements.", 
     Documentation.Examples = {
           [
             Description = "Retrieve metrics for all pages from the main site and all subsites",
