@@ -52,7 +52,7 @@ let
     // Reserved words to avoid (example list)
     ReservedWords = {"SELECT", "TABLE", "WHERE", "FROM", "JOIN"},
     UniqueNewNamesWithoutReserved = List.Transform(UniqueNewNames, each 
-        if List.Contains(ReservedWords, Text.Upper(_)) then _ & "_Reserved" else _
+        if List.Contains(ReservedWords, Text.Upper(_)) then _ & " (Reserved)" else _
     ),
 
     // Map current and new names, filtering out null, empty, or whitespace-only strings
