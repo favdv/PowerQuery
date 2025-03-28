@@ -3,7 +3,7 @@ doc = [
     Documentation.Name =  "Change JSON Strings to JSON (nested columns)", 
     Documentation.FunctionName = "Table.TextToJson",
     Documentation.Description = 
-    "This function converts JSON strings to deep nested columns. Note that the function name is dependent on the name of the query in PowerBI in which the function is pasted, so if the Query is called 'Query1', replace FunctionName with Query1 when calling the function.", 
+    "This function converts JSON strings to deep nested columns.", 
     Documentation.Examples = {
           [
             Description = "Convert all columns",
