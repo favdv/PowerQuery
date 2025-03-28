@@ -18,50 +18,53 @@ let
     ],
     fn = (previousStep as table, mappingTable as table, columnWithCurrentNames as text, columnWithNewNames as text) =>
 let
-    // Get the list of column names from the previousStep table
-    PreviousColumnNames = Table.ColumnNames(previousStep),
+    // Retrieve column names from the previous table
+    PreviousColumnNames = List.Transform(Table.ColumnNames(previousStep), each Text.Lower(_)), // Case-insensitive comparison
 
-    // Identify the column in the mappingTable that matches the current names (partial match)
-    CurrentNames = 
-        Table.Column(
-            mappingTable, 
-            Table.ColumnNames(mappingTable){
-                List.PositionOf(
-                    List.Transform(
-                        Table.ColumnNames(mappingTable), 
-                        each Text.Contains(_, columnWithCurrentNames)
-                    ), true
-                )
-            }
-        ),
-    
-    // Identify the column in the mappingTable that matches the new names (partial match)
-    NewNames = 
-        Table.Column(
-            mappingTable, 
-            Table.ColumnNames(mappingTable){
-                List.PositionOf(
-                    List.Transform(
-                        Table.ColumnNames(mappingTable), 
-                        each Text.Contains(_, columnWithNewNames)
-                    ), true
-                )
-            }
-        ),
+    // Function to sanitize column names by removing invalid characters
+    SanitizeName = (name) => Text.Remove(Text.From(name), {"[", "]", "{", "}", "#", "."}),
 
-    // Filter out cases where either CurrentNames or NewNames is null
+    // Extract and sanitize the column for current names
+    CurrentNamesColumnIndex = List.PositionOf(
+        List.Transform(Table.ColumnNames(mappingTable), each Text.Contains(Text.Lower(_), Text.Lower(columnWithCurrentNames))),
+        true
+    ),
+    CurrentNames = if CurrentNamesColumnIndex <> -1 
+                   then List.Transform(Table.Column(mappingTable, Table.ColumnNames(mappingTable){CurrentNamesColumnIndex}), each Text.Trim(SanitizeName(_))) 
+                   else {},
+
+    // Extract and sanitize the column for new names
+    NewNamesColumnIndex = List.PositionOf(
+        List.Transform(Table.ColumnNames(mappingTable), each Text.Contains(Text.Lower(_), Text.Lower(columnWithNewNames))),
+        true
+    ),
+    NewNames = if NewNamesColumnIndex <> -1 
+               then List.Transform(Table.Column(mappingTable, Table.ColumnNames(mappingTable){NewNamesColumnIndex}), each Text.Trim(SanitizeName(_))) 
+               else {},
+
+    // Remove duplicates in NewNames by appending an index to duplicates
+    UniqueNewNames = List.Accumulate(NewNames, {}, (state, current) =>
+        if List.Contains(state, current) 
+        then state & {current & "_" & Text.From(List.Count(state))}
+        else state & {current}
+    ),
+
+    // Reserved words to avoid (example list)
+    ReservedWords = {"SELECT", "TABLE", "WHERE", "FROM", "JOIN"},
+    UniqueNewNamesWithoutReserved = List.Transform(UniqueNewNames, each 
+        if List.Contains(ReservedWords, Text.Upper(_)) then _ & "_Reserved" else _
+    ),
+
+    // Map current and new names, filtering out null, empty, or whitespace-only strings
     ValidPairs = List.Select(
-        List.Zip({CurrentNames, NewNames}),
-        each _{0} <> null and _{1} <> null
+        List.Zip({CurrentNames, UniqueNewNamesWithoutReserved}),
+        each (_{0} <> null and _{0} <> "" and Text.Trim(_{0}) <> "") and (_{1} <> null and _{1} <> "" and Text.Trim(_{1}) <> "")
     ),
 
-    // Filter ValidPairs to only include names that exist in PreviousColumnNames
-    FinalPairs = List.Select(
-        ValidPairs,
-        each List.Contains(PreviousColumnNames, _{0})
-    ),
+    // Filter to only include pairs where current name exists in previous column names
+    FinalPairs = List.Select(ValidPairs, each List.Contains(PreviousColumnNames, Text.Lower(_{0}))),
 
-    // Apply the renaming
+    // Rename columns in the source table
     RenamedTable = Table.RenameColumns(previousStep, FinalPairs)
 in
     RenamedTable
