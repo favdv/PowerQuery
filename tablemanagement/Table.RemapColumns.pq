@@ -16,15 +16,15 @@ let
             ],
             [
                 Description = "Renaming the columns from a 'Source' Table from the names in a 'Department' column to the names in a 'Central' column using a mapping table in a query, called 'Lookup'.",
-                Code = "FunctionName(Source,Lookup,""Department"",""Central"","" (disallowed"")",
-                Result = "The column names that can be renamed are renamed and all columns that are not identified in the mapping table retain their current name. Also replaces the default '(Reserved)' string with '(disallowed')"
+                Code = "FunctionName(Source,Lookup,""Department"",""Central"","" (disallowed)"")",
+                Result = "The column names that can be renamed are renamed and all columns that are not identified in the mapping table retain their current name. Also replaces the default '(Reserved)' string with '(disallowed)'"
             ]
         }
     ],
     fn = (previousStep as table, mappingTable as table, columnWithCurrentNames as text, columnWithNewNames as text, optional ReservedText as text) =>
 let
     //ReservedString
-    ReservedText = if ReservedText = null or ReservedText = "" then " (Reserved)" else ReservedText
+    ReservedText = if ReservedText = null or ReservedText = "" then " (Reserved)" else ReservedText,
     // Retrieve column names from the previous table
     PreviousColumnNames = List.Transform(Table.ColumnNames(previousStep), each Text.Lower(_)), // Case-insensitive comparison
 
