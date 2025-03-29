@@ -2,7 +2,7 @@ let
     doc = [
         Documentation.Name = "Record.SharedFunctions", 
         Documentation.FunctionName = "Record.SharedFunctions",
-        Documentation.Description = "A record of global functions that can be easily incorporated for use with Expression.Evaluate", 
+        Documentation.Description = "A record of global functions that can be easily incorporated for use with Expression.Evaluate. Copying the list will avoid dynamic data source errors once a report is published.", 
         Documentation.Examples = {
             [
                 Description = "Get record of functions",
