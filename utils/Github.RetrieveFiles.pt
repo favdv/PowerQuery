@@ -7,7 +7,7 @@ doc = [
           [
             Description = "Retieve github data",
             Code = "FunctionName()",
-            Result = "Retrieved github data. Note that options, etc are all set in the top of the function. (repo, mainBranch, extensions, functionNameField and createFunctions)"
+            Result = "Retrieved github data. Note that options, etc are all set in the top of the function. (repoowner, repository, mainBranch, extensions, functionNameField and createFunctions)"
           ]
         }
     
@@ -15,7 +15,8 @@ doc = [
   fn = ()=>
     let 
     
-    repo ="<your repo>",
+    repoOwner ="<repoOwner>", //e.g. "favdv"
+    repository = "<repository name>", // e.g. "powerbi-powerquery-toolkit" for this repository
     mainBranch = "main",
     extensions = {".pq"},  
     
@@ -28,7 +29,7 @@ doc = [
     Table.ExpandRecordColumn(
       Table.FromList(
       Json.Document(
-        Web.Contents(repo,[RelativePath = "git/trees/" & mainBranch,Query=[recursive="1"]]))[tree], 
+        Web.Contents("https://api.github.com/repos/" & repoOwner & "/" & repository,[RelativePath = "git/trees/" & mainBranch,Query=[recursive="1"]]))[tree], 
       Splitter.SplitByNothing(), null, null, ExtraValues.Error
       ), 
       "Column1", {"path", "url", "sha"}
@@ -43,7 +44,7 @@ doc = [
             GetRepoInfo, "Content", each let sha = [sha] in
             Text.FromBinary(Binary.FromText(
               Json.Document(
-                Web.Contents(repo,[RelativePath ="git/blobs/"& sha ])
+                Web.Contents("https://api.github.com/repos/" & repoOwner & "/" & repository,[RelativePath ="git/blobs/"& sha ])
               )[content], 
               BinaryEncoding.Base64))
             ),
@@ -74,6 +75,8 @@ doc = [
             ExtraValues.Type=ExtraValues.Type,
             Int64.From=Int64.From,
             Int64.Type=Int64.Type,
+            Json.Document=Json.Document,
+            Json.FromValue = Json.FromValue,
             List.Accumulate=List.Accumulate,
             List.AllTrue=List.AllTrue,
             List.Alternate=List.Alternate,
