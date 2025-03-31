@@ -1,31 +1,11 @@
 # The repository
-This repository is used to store snippets of Power Query that other Power BI developers might also find of interest.
+This repository is used to store Power Query functions that other Power BI developers might also find of interest.
 
-Note that some snippets can be copied and used immediately, while others need some minor tweaking for your specific environment. For example: API calls using the Web.Contents function must have the domain hard coded, otherwise auto-refresh will not work.  
-
-# Repo structure
 The repository is set up in a way to easily target specific functions or patterns by seprating them into categories, like apis, data management (expanding/removing columns), etc.  
 
-## Functions
- Functions can be used without any user amendments and they should work immediately if used properly. To make them recognisable, their extension is *.pq* (Power Queries)
+Functions can be used without any user amendments and they should work immediately if used properly. To make them recognisable, their extension is *.pq* (Power Queries)
 
 _**Note:** While it might not be obvious that this is needed in PowerBI desktop, the functions are written in a way so it will also ensure auto-refresh works once published._
-
-## Templates
-Patterns typically might require some user updating before they can be used. To make them recognisable, their extension is *.pt* (PQ Templates)
-
-Typical example is functions calling APIs since the Web.Contents function in PowerBi requires the domain to be hardcoded. So the user needs to hardcode their own domain in. 
-
-Since patterns require some modification, these should not be linked directly from github
-
-## Sample Data
-Sample data is added to the *sample-data* folder. Most of this is based on well known sample databases, like *Northwind*. The data is either directly retrieved from the sourse repositories or from another repo who has done some conversion (e.g. from a SQL Server database to CSV or Excel). No responsibility of the quality or accuracy of the data data will be assumed as the data is converted as-is and no values or table columns are modified or added. In some cases, data is removed that were ot essential (like blob representation or links), and entries were fixes where the CSV or imports would not be properly structured (e.g. interpretation of addresses with commas that would be split on import wr fixed by wrapping them in quotes in the csv).
-
-Samples are not intended to be interpreted as live data, but can be used to test certain scenarios in PowerBI. 
-
-
-# Implementation of functions
-There are different ways to use the functions available in the repo. This provides some guidance on options with an example (based on a simple function). In this section, function [DeleteEmptyColumnsViaLooping](https://github.com/favdv/powerbi-powerquery-toolkit/blob/main/generic/DeleteEmptyColumnsViaLooping.pq) is being used as it is small, but the process is the same for all functions.
 
 ## Linking to the function in the Github repo
 
