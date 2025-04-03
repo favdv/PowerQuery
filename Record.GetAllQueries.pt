@@ -1,7 +1,7 @@
 let 
     
   repoOwner ="favdv",
-  repository = "ready-to-use-powerqueries",
+  repository = "PowerQuery",
   mainBranch = "main",
   extensions = {".pq"},  
     
