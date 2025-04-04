@@ -1,7 +1,7 @@
 let 
     
   repoOwner ="favdv",
-  repository = "powerquery",
+  repository = "PowerQuery",
   mainBranch = "main",
   extensions = {".pq"},  
     
