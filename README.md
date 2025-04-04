@@ -12,7 +12,9 @@ _**Note:** While it might not be obvious that this is needed in PowerBI desktop,
 ## Retrieving all functions
 To retrieve the functions in PowerBi, you can simply copy the content from [Record.GetAllQueries.pt](https://github.com/favdv/ready-to-use-powerqueries/blob/main/Record.GetAllQueries.pt) into blank query.
 
-_**Note:** As the list of queries grows, Record.GetAllQueries.pt might need to be amended to cater for additional records in the function list. So you might require to update the function on occasion._ 
+_**Note:** As the list of queries grows, Record.GetAllQueries.pt might need to be amended to cater for additional records in the function list. So you might require to update the function on occasion. The utilities repo has functions and a more exhaustive list to support managing amendments for this purpose._ 
+
+
 
 This will create a record, like:
 
