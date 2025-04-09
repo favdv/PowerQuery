@@ -3,7 +3,7 @@ doc =
   [
     Documentation.Name =  "Auto Expand columns", 
     Documentation.FunctionName = "Table.ExpandColumns", 
-    Documentation.Description = "A function to expand any number of nested columns, including the nested columns as applicable.", 
+    Documentation.Description = "A function to expand any number of nested columns, including the nested columns as applicable. All expanded columns are prefixed with the name of the parent column with the aim to avoid naming clashes.", 
     Documentation.Examples = {
           [
             Description = "Expand all columns",
