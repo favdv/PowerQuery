@@ -1,8 +1,8 @@
 let 
 doc = 
   [
-    Documentation.Name =  "Auto Expand columns", 
-    Documentation.FunctionName = "Table.RecursiveExpandColumns", 
+    Documentation.Name =  "Recursively Expand Columns", 
+    Documentation.FunctionName = "Table.RecursivelyExpandColumns", 
     Documentation.Description = "A function to expand any number of nested columns, including the nested columns as applicable. Value 'null' for the `specifiedCols` parameter means all columns. A 'null' value for the `excludeCols` parameter is assumed to be 'false' and can thus be omitted if preferred. There is an option to change the separator via the separator parameter, which defaults to a fullstop", 
     Documentation.Examples = {
           [
