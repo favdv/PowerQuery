@@ -3,11 +3,11 @@ doc =
   [
     Documentation.Name =  "Auto Expand columns", 
     Documentation.FunctionName = "Table.ExpandColumns", 
-    Documentation.Description = "A function to expand any number of nested columns, including the nested columns as applicable. All expanded columns are prefixed with the name of the parent column with the aim to avoid naming clashes.", 
+    Documentation.Description = "A function to expand any number of nested columns, including the nested columns as applicable. Value 'null' for the `specifiedCols` parameter means all columns. A 'null' value for the `excludeCols` parameter is assumed to be 'false' and can thus be omitted if preferred. There is an option to change the separator via the separator parameter, which defaults to a fullstop", 
     Documentation.Examples = {
           [
             Description = "Expand all columns",
-            Code = "FunctionName(Source) or FunctionName(Source,null) or FunctionName(Source,null,null) or FunctionName(Source,null,false)",
+            Code = "FunctionName(Source)",
             Result = "All columns are expanded."
           ],
           [
@@ -17,13 +17,18 @@ doc =
           ],
           [
             Description = "Expand selected columns",
-            Code = "FunctionName(Source,{""colA"",""colE""}) or FunctionName(Source,{""colA"",""colE""},null) or FunctionName(Source,{""colA"",""colE""},false)",
+            Code = "FunctionName(Source,{""colA"",""colE""})",
             Result = "Only columns colA and colE are expanded."
           ],
           [
             Description = "Expand nothing (would typically never be used)",
             Code = "FunctionName(Source,null,true)",
             Result = "Nothing is expanded."
+          ],
+          [
+            Description = "Change the separator",
+            Code = "FunctionName(Source,null,null,"" "")",
+            Result = "Expands all columns, butinstead of a fullstop, a space is used as a separator."
           ]
         }
     
@@ -31,9 +36,11 @@ doc =
 fn = (
     previousStep as table,
     optional specifiedCols as nullable list,
-    optional excludeCols as nullable logical
+    optional excludeCols as nullable logical,
+    optional separator as nullable text
 ) =>
 let
+    separator = if separator = null then "." else separator,
     iteration = (
         prev as table,
         specifiedCols as nullable list,
@@ -113,7 +120,7 @@ let
                         newRecords = Table.AddColumn(
                             oldRecords,
                             "new.name",
-                            each if [old.name] = "_" then colName else colName & "." & [old.name]
+                            each if [old.name] = "_" then colName else colName & separator & [old.name]
                         ),
                         expanded = Table.ExpandRecordColumn(
                             convert,
