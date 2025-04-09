@@ -26,9 +26,9 @@ doc =
             Result = "Nothing is expanded."
           ],
           [
-            Description = "Change the separator",
+            Description = "Example: Change the separator while all columns are expanded",
             Code = "FunctionName(Source,null,null,"" "")",
-            Result = "Expands all columns, butinstead of a fullstop, a space is used as a separator."
+            Result = "Expands all columns, but instead of a fullstop, a space is used as a separator."
           ]
         }
     
