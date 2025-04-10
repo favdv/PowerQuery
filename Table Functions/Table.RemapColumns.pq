@@ -26,7 +26,7 @@ let
             ]
         }
     ],
-    fn = (previousStep as table, mappingTable as table, columnWithCurrentNames as text, columnWithNewNames as text, optional ReservedText as text, optional ReservedWords as list) =>
+    fn = (previousStep as table, mappingTable as table, columnWithCurrentNames as text, columnWithNewNames as text, optional ReservedText as nullable text, optional ReservedWords as nullable list) =>
 let
     //ReservedString
     ReservedText = if ReservedText = null or ReservedText = "" then " (Reserved)" else ReservedText,
